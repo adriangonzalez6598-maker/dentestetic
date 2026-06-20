@@ -356,7 +356,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 
   <section id="register">
     <div class="card">
-      <h2>Registro de Personal Médico</h2>
+      <h2>Registro de Personal Odontológico</h2>
       <p class="muted">Crea tu cuenta de especialista para administrar tu agenda y pacientes:</p>
 
       <div id="regDentistBox" style="margin-top:10px;">
@@ -422,7 +422,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 
   <section id="dentistMain">
     <div class="card">
-      <h3>Panel de Control Médico</h3>
+      <h3>Panel de Control Odontológico</h3>
       <p class="muted">Bienvenido de vuelta. Desde aquí puedes coordinar turnos manuales e historiales.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
         <button class="btn" onclick="show('agenda')"><i data-lucide="calendar-days"></i> Ver Agenda y Citas</button>
@@ -524,7 +524,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 
   <section id="profile">
     <div class="card">
-      <h3>Configuración del Perfil Médico</h3>
+      <h3>Configuración del Perfil Odontológico</h3>
       <form id="formProfile">
         <label>Nombre Completo<input name="name"></label>
         <label>Correo Electrónico<input name="email" type="email"></label>
@@ -656,7 +656,19 @@ $('#btnRegDent').onclick = ()=>{
   if(!name||!email||!spec||!pass){ toast('Completa los campos obligatorios'); return; }
   if(emailExists(email)){ toast('El correo ya existe registrado'); return; }
   store.up(d=>d.dentists.push({ id: uid(), role:'dentist', name, email, phone, spec, start, end, slot, pass }));
-  toast('¡Especialista registrado exitosamente!'); selectLoginRole('dentist'); show('login');
+  toast('¡Especialista registrado exitosamente!'); 
+  
+  /* ===== AQUÍ SE LIMPIAN LOS CAMPOS PARA EL PRÓXIMO REGISTRO ===== */
+  $('#reg_d_name').value = '';
+  $('#reg_d_email').value = '';
+  $('#reg_d_phone').value = '';
+  $('#reg_d_spec').value = '';
+  $('#reg_d_start').value = '09:00';
+  $('#reg_d_end').value = '17:00';
+  $('#reg_d_slot').value = '30';
+  $('#reg_d_pass').value = '';
+  
+  selectLoginRole('dentist'); show('login');
 };
 
 $('#btnLogin').onclick = ()=>{
@@ -748,7 +760,7 @@ $('#btnConfirmBookByDentist').onclick = ()=>{
     d.bookings.push({ id: uid(), patientId: patient.id, dentistId: s.id, date, time, motivo, status:'confirmed', createdAt: Date.now() });
   });
   
-  toast('¡Consulta agendada y confirmada!'); 
+  toast('¡Consulta agendada y confirmed!'); 
   show('dentistMain');
 };
 
