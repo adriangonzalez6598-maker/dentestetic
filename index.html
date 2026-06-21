@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dentestetic — Panel de Gestión Odontológica</title>
+<title>Dentestetic</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,33 +12,30 @@
 
 <style>
 :root{
-  --primary: #059669; 
-  --primary-dark: #047857;
-  --text: #0f172a;    
-  --muted: #64748b;
-  --glass: rgba(255, 255, 255, 0.98); 
-  --blur: blur(16px);
-  --radius: 24px;
+  --primario: #059669; 
+  --primario-oscuro: #047857;
+  --texto: #0f172a;    
+  --atenuado: #64748b;
+  --cristal: rgba(255, 255, 255, 0.98); 
+  --desenfoque: blur(16px);
+  --radio: 24px;
 }
 
 /* RESET GENERAL */
 *{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
 
-/* ===== FONDO TOTALMENTE ESTÁTICO Y COMPLETO EN TODO EL SITIO ===== */
 body {
-  color: var(--text);
+  color: var(--texto);
   min-height: 100vh;
-  /* Imagen de fondo global en todo el sitio, fija y centrada */
   background: 
     linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.5)), 
     url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  background-attachment: fixed; /* Hace que la imagen nunca se mueva al hacer scroll */
+  background-attachment: fixed;
 }
 
-/* ===== HERO HEADER LIMPIO (YA NO CORTA EL FONDO) ===== */
 header.hero {
   position: relative;
   width: 100%;
@@ -47,7 +44,7 @@ header.hero {
   z-index: 5;
 }
 
-header .top {
+header .superior {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
@@ -58,13 +55,13 @@ header .top {
   color: white;
 }
 
-.brand {
+.marca {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.logo-container {
+.contenedor-logo {
   width: 64px;
   height: 64px;
   border-radius: 18px;
@@ -72,11 +69,11 @@ header .top {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
+  color: var(--primario);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
 }
 
-.tooth-creative-svg {
+.svg-diente-creativo {
   width: 40px;
   height: 40px;
 }
@@ -95,7 +92,6 @@ header p {
   text-shadow: 0 1px 2px rgba(0,0,0,0.2);
 }
 
-/* BOTONES DE NAVEGACIÓN SUPERIOR */
 nav { display: flex; gap: 12px; }
 nav button {
   background: rgba(255, 255, 255, 0.2);
@@ -114,11 +110,10 @@ nav button {
 }
 nav button:hover {
   background: white;
-  color: var(--text) !important;
+  color: var(--texto) !important;
   transform: translateY(-1px);
 }
 
-/* ===== CONTENEDOR PRINCIPAL FLOTANTE ===== */
 main {
   margin-top: 20px; 
   padding: 0 20px 80px;
@@ -128,35 +123,32 @@ main {
   z-index: 10;
 }
 
-/* ===== SECTIONS ANIMADAS ===== */
 section {
   display: none;
-  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  animation: deslizarArriba 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
-section.active { display: block; }
+section.activo { display: block; }
 
-@keyframes slideUp {
+@keyframes deslizarArriba {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: none; }
 }
 
-/* ===== TARJETAS PREMIUM CON EFECTO DE CRISTAL OPACADO ===== */
-.card {
-  background: var(--glass);
-  backdrop-filter: var(--blur);
-  -webkit-backdrop-filter: var(--blur);
+.tarjeta {
+  background: var(--cristal);
+  backdrop-filter: var(--desenfoque);
+  -webkit-backdrop-filter: var(--desenfoque);
   border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: var(--radius);
+  border-radius: var(--radio);
   padding: 40px;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
 h3 { font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 18px; }
-.muted { color: var(--muted); font-size: 15px; line-height: 1.6; }
+.atenuado { color: var(--atenuado); font-size: 15px; line-height: 1.6; }
 
-/* MENÚ DE SELECCIÓN DE ROLES POR TARJETAS */
-.role-selector-grid {
+.rejilla-selector-roles {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 16px;
@@ -164,7 +156,7 @@ h3 { font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 18px; }
   margin-bottom: 24px;
 }
 
-.role-card-btn {
+.boton-tarjeta-rol {
   background: white;
   border: 2px solid #e2e8f0;
   border-radius: 16px;
@@ -177,21 +169,20 @@ h3 { font-size: 20px; font-weight: 600; color: #1e293b; margin-bottom: 18px; }
   align-items: center;
   gap: 12px;
 }
-.role-card-btn i { color: var(--primary); }
-.role-card-btn span { font-weight: 600; font-size: 15px; color: var(--text); }
-.role-card-btn:hover {
-  border-color: var(--primary);
+.boton-tarjeta-rol i { color: var(--primario); }
+.boton-tarjeta-rol span { font-weight: 600; font-size: 15px; color: var(--texto); }
+.boton-tarjeta-rol:hover {
+  border-color: var(--primario);
   background: rgba(5, 150, 105, 0.02);
   transform: translateY(-2px);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
 }
-.role-card-btn.active {
-  border-color: var(--primary);
+.boton-tarjeta-rol.activo {
+  border-color: var(--primario);
   background: rgba(5, 150, 105, 0.08);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
 }
 
-/* FORMULARIOS */
 label { display: block; margin-top: 18px; font-size: 14px; font-weight: 600; color: #334155; }
 input, select, textarea {
   width: 100%;
@@ -201,47 +192,45 @@ input, select, textarea {
   border: 1px solid #cbd5e1;
   background: white;
   font-size: 15px;
-  color: var(--text);
+  color: var(--texto);
   transition: all 0.2s;
 }
 input:focus, select:focus, textarea:focus {
   outline: none;
-  border-color: var(--primary);
+  border-color: var(--primario);
   box-shadow: 0 0 0 4px rgba(5, 150, 105, 0.15);
 }
 textarea { resize: vertical; min-height: 100px; }
 
-.row { display: flex; gap: 16px; }
-.row > * { flex: 1; }
+.fila { display: flex; gap: 16px; }
+.fila > * { flex: 1; }
 
-/* CONTENEDOR CONTRASEÑA CON OJO */
-.password-wrapper {
+.envoltura-contrasena {
   position: relative;
   width: 100%;
 }
-.password-wrapper input {
+.envoltura-contrasena input {
   padding-right: 48px;
 }
-.password-toggle-btn {
+.boton-alternar-contrasena {
   position: absolute;
   right: 14px;
   bottom: 14px;
   background: transparent;
   border: none;
-  color: var(--muted);
+  color: var(--atenuado);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color 0.2s;
 }
-.password-toggle-btn:hover {
-  color: var(--primary);
+.boton-alternar-contrasena:hover {
+  color: var(--primario);
 }
 
-/* BOTONES */
 .btn {
-  background: var(--primary);
+  background: var(--primario);
   border: none;
   padding: 14px 28px;
   border-radius: 12px;
@@ -255,56 +244,58 @@ textarea { resize: vertical; min-height: 100px; }
   justify-content: center;
   gap: 8px;
 }
-.btn:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.btn:hover { background: var(--primario-oscuro); transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
 
-.btn.ghost {
-  background: transparent;
+.btn.fantasma {
+  background: #f1f5f9;
   border: 1px solid #cbd5e1;
   color: #475569;
 }
-.btn.ghost:hover { background: #f1f5f9; color: var(--text); }
-.btn.warn { background: #ef4444; }
-.btn.warn:hover { background: #dc2626; }
+.btn.fantasma:hover { background: #e2e8f0; color: var(--texto); }
+.btn.advertencia { background: #ef4444; }
+.btn.advertencia:hover { background: #dc2626; }
 
-/* TABLAS */
-.table-container {
+.btn.naranja { background: #f97316; }
+.btn.naranja:hover { background: #ea580c; }
+
+.contenedor-tabla {
   width: 100%; overflow-x: auto; margin-top: 18px; border-radius: 12px; border: 1px solid #e2e8f0;
 }
 table { width: 100%; border-collapse: collapse; text-align: left; background: white; font-size: 14px; }
 th, td { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
 th { background: #f8fafc; font-weight: 600; color: #475569; }
 
-.list-item {
+.elemento-lista {
   display: flex; justify-content: space-between; align-items: center;
   padding: 16px; border-radius: 12px; background: white; margin-bottom: 12px;
   border: 1px solid #e2e8f0;
 }
 
-.pill {
+.etiqueta {
   padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: uppercase; display: inline-block;
 }
-.pill.pending { background: #fef3c7; color: #d97706; }
-.pill.confirmed { background: #d1fae5; color: #065f46; }
-.pill.cancelled { background: #fee2e2; color: #991b1b; }
-.pill.doctor { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; text-transform: none; }
+.etiqueta.pendiente { background: #e0f2fe; color: #0369a1; } /* Atendiendo */
+.etiqueta.confirmado { background: #d1fae5; color: #065f46; }
+.etiqueta.cancelado { background: #fee2e2; color: #991b1b; }
+.etiqueta.completada { background: #f3e8ff; color: #6b21a8; }
+.etiqueta.noasistio { background: #fee2e2; color: #b91c1c; }
+.etiqueta.medico { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; text-transform: none; }
 
-.toast {
+.emergente {
   position: fixed; right: 24px; bottom: 24px; background: #0f172a; color: white;
   padding: 14px 24px; border-radius: 12px; display: none; z-index: 1000;
   box-shadow: 0 10px 15px -3px rgba(0,0,0,0.3); font-weight: 500;
 }
 
 @media(max-width:720px){
-  body {
-    background-attachment: scroll; 
-  }
+  body { background-attachment: scroll; }
   header h1 { font-size: 26px; }
-  header .top { padding: 24px 16px; flex-direction: column; gap: 16px; text-align: center; }
-  .brand { flex-direction: column; gap: 8px; }
-  .row { flex-direction: column; gap: 0; }
+  header .superior { padding: 24px 16px; flex-direction: column; gap: 16px; text-align: center; }
+  .marca { flex-direction: column; gap: 8px; }
+  .fila { flex-direction: column; gap: 0; }
   main { margin-top: 10px; }
-  .card { padding: 24px; }
+  .tarjeta { padding: 24px; }
 }
 </style>
 </head>
@@ -312,10 +303,10 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 <body>
 
 <header class="hero">
-  <div class="top">
-    <div class="brand">
-      <div class="logo-container">
-        <svg class="tooth-creative-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <div class="superior">
+    <div class="marca">
+      <div class="contenedor-logo">
+        <svg class="svg-diente-creativo" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M25 35C25 24 38 18 50 30C62 18 75 24 75 35C75 52 68 78 50 85C32 78 25 52 25 35Z" fill="#059669" opacity="0.15"/>
           <path d="M25 35C25 24 38 18 50 30C62 18 75 24 75 35C75 52 68 78 50 85C32 78 25 52 25 35Z" stroke="#059669" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M36 52C42 58 58 58 64 52" stroke="#059669" stroke-width="4.5" stroke-linecap="round"/>
@@ -327,698 +318,876 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
         <p>Panel Interno y Control Clínico</p>
       </div>
     </div>
-    <nav id="topNav"></nav>
+    <nav id="navegacionSuperior"></nav>
   </div>
 </header>
 
 <main>
-  <section id="welcomeScreen" class="active">
-    <div class="card" style="text-align:center">
+  <section id="pantallaBienvenida" class="activo">
+    <div class="tarjeta" style="text-align:center">
       <h2>Bienvenido a Dentestetic</h2>
-      <p class="muted">Plataforma de gestión de turnos y expedientes médicos para especialistas.</p>
+      <p class="atenuado">Plataforma de gestión de citas para Dentistas.</p>
       <div style="margin-top:24px">
-        <button class="btn" onclick="show('access')">Ingresar al Sistema <i data-lucide="arrow-right"></i></button>
+        <button class="btn" onclick="mostrar('acceso')">Ingresar al Sistema <i data-lucide="arrow-right"></i></button>
       </div>
     </div>
   </section>
 
-  <section id="access">
-    <div class="card" style="text-align:center">
+  <section id="acceso">
+    <div class="tarjeta" style="text-align:center">
       <h2>Acceso Profesional</h2>
-      <p class="muted">Inicia sesión con tu cuenta o registra tu consultorio</p>
+      <p class="atenuado">Inicia sesión con tu cuenta o registra tu consultorio</p>
       <div style="margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <button class="btn" onclick="show('login')"><i data-lucide="log-in"></i> Iniciar Sesión</button>
-        <button class="btn btn-ghost" onclick="show('register')"><i data-lucide="user-plus"></i> Registrar Especialista</button>
+        <button class="btn" onclick="mostrar('iniciarSesion')"><i data-lucide="log-in"></i> Iniciar Sesión</button>
+        <button class="btn btn-fantasma" onclick="mostrar('registro')"><i data-lucide="user-plus"></i> Registrar Dentista</button>
       </div>
-      <div style="margin-top:16px"><button class="btn ghost" onclick="show('welcomeScreen')">Volver</button></div>
+      <div style="margin-top:16px"><button class="btn fantasma" onclick="mostrar('pantallaBienvenida')">Volver</button></div>
     </div>
   </section>
 
-  <section id="register">
-    <div class="card">
+  <section id="registro">
+    <div class="tarjeta">
       <h2>Registro de Personal Odontológico</h2>
-      <p class="muted">Crea tu cuenta de especialista para administrar tu agenda y pacientes:</p>
+      <p class="atenuado">Crea tu cuenta de especialista para administrar tu agenda y pacientes:</p>
 
-      <div id="regDentistBox" style="margin-top:10px;">
-        <label>Nombre Completo del Especialista<input id="reg_d_name" placeholder="Ej. Dra. María López"></label>
-        <label>Correo Electrónico Institucional<input id="reg_d_email" type="email" placeholder="maria.lopez@dentestetic.com"></label>
-        <label>Teléfono de Contacto<input id="reg_d_phone" placeholder="Ej. 555-1234"></label>
-        <label>Especialidad Médica<input id="reg_d_spec" placeholder="Ej. Ortodoncia, Endodoncia, Odontopediatría"></label>
-        <div class="row">
-          <label>Inicio de Jornada<input id="reg_d_start" type="time" value="09:00"></label>
-          <label>Fin de Jornada<input id="reg_d_end" type="time" value="17:00"></label>
+      <div id="cajaRegOdontologo" style="margin-top:10px;">
+        <label>Nombre Completo del Especialista<input id="reg_o_nombre" placeholder="Ej. Dra. María López"></label>
+        <label>Correo Electrónico Institucional<input id="reg_o_correo" type="email" placeholder="maria.lopez@dentestetic.com"></label>
+        <label>Teléfono de Contacto<input id="reg_o_telefono" placeholder="Ej. 555-1234"></label>
+        <label>Especialidad Odontólogica<input id="reg_o_especialidad" placeholder="Ej. Ortodoncia, Endodoncia, Odontopediatría"></label>
+        <div class="fila">
+          <label>Inicio de Jornada<input id="reg_o_inicio" type="time" value="09:00"></label>
+          <label>Fin de Jornada<input id="reg_o_fin" type="time" value="17:00"></label>
         </div>
         <label>Duración fija por turno (minutos)
-          <select id="reg_d_slot"><option>30</option><option>45</option><option>60</option></select>
+          <select id="reg_o_duracion"><option>30</option><option>45</option><option>60</option></select>
         </label>
         <label>Contraseña de Acceso</label>
-        <div class="password-wrapper">
-          <input id="reg_d_pass" type="password" placeholder="••••••••">
-          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('reg_d_pass', this)">
+        <div class="envoltura-contrasena">
+          <input id="reg_o_contrasena" type="password" placeholder="••••••••">
+          <button type="button" class="boton-alternar-contrasena" onclick="alternarVisibilidadContrasena('reg_o_contrasena', this)">
             <i data-lucide="eye"></i>
           </button>
         </div>
-        <div style="margin-top:24px"><button class="btn" id="btnRegDent"><i data-lucide="shield-check"></i> Registrar Especialista</button></div>
+        <div style="margin-top:24px"><button class="btn" id="btnRegOdontologo"><i data-lucide="shield-check"></i> Registrar Especialista</button></div>
       </div>
 
       <div style="margin-top:24px; border-top: 1px solid #e2e8f0; padding-top: 16px;">
-        <button class="btn ghost" onclick="show('access')">Volver</button>
+        <button class="btn fantasma" onclick="mostrar('acceso')">Volver</button>
       </div>
     </div>
   </section>
 
-  <section id="login">
-    <div class="card">
+  <section id="iniciarSesion">
+    <div class="tarjeta">
       <h2>Iniciar Sesión</h2>
-      <p class="muted">Selecciona tu perfil de acceso institucional:</p>
+      <p class="atenuado">Selecciona tu perfil de acceso institucional:</p>
       
-      <div class="role-selector-grid">
-        <button class="role-card-btn" id="lblLogDentist" onclick="selectLoginRole('dentist')">
+      <div class="rejilla-selector-roles">
+        <button class="boton-tarjeta-rol" id="lblLogOdontologo" onclick="seleccionarRolInicio('odontologo')">
           <i data-lucide="stethoscope" style="width: 28px; height: 28px;"></i>
           <span>Odontólogo</span>
         </button>
-        <button class="role-card-btn" id="lblLogAdmin" onclick="selectLoginRole('admin')">
+        <button class="boton-tarjeta-rol" id="lblLogAdmin" onclick="seleccionarRolInicio('admin')">
           <i data-lucide="shield-alert" style="width: 28px; height: 28px;"></i>
           <span>Administrador</span>
         </button>
       </div>
 
       <div style="margin-top:12px">
-        <label>Correo electrónico<input id="login_email" type="email" placeholder="ejemplo@dentestetic.com"></label>
+        <label>Correo electrónico<input id="login_correo" type="email" placeholder="ejemplo@dentestetic.com"></label>
         <label>Contraseña</label>
-        <div class="password-wrapper">
-          <input id="login_pass" type="password" placeholder="••••••••">
-          <button type="button" class="password-toggle-btn" onclick="togglePasswordVisibility('login_pass', this)">
+        <div class="envoltura-contrasena">
+          <input id="login_contrasena" type="password" placeholder="••••••••">
+          <button type="button" class="boton-alternar-contrasena" onclick="alternarVisibilidadContrasena('login_contrasena', this)">
             <i data-lucide="eye"></i>
           </button>
         </div>
         <div style="margin-top:24px;display:flex;gap:12px">
-          <button class="btn" id="btnLogin">Ingresar Seguro <i data-lucide="shield-check"></i></button>
-          <button class="btn ghost" onclick="show('access')">Volver</button>
+          <button class="btn" id="btnIngresar">Ingresar Seguro <i data-lucide="shield-check"></i></button>
+          <button class="btn fantasma" onclick="mostrar('acceso')">Volver</button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="dentistMain">
-    <div class="card">
+  <section id="odontologoPrincipal">
+    <div class="tarjeta">
       <h3>Panel de Control Odontológico</h3>
-      <p class="muted">Bienvenido de vuelta. Desde aquí puedes coordinar turnos manuales e historiales.</p>
+      <p class="atenuado">Bienvenido de vuelta. Desde aquí puedes coordinar turnos manuales e historiales.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-        <button class="btn" onclick="show('agenda')"><i data-lucide="calendar-days"></i> Ver Agenda y Citas</button>
-        <button class="btn" onclick="show('bookByDentist')"><i data-lucide="calendar-plus"></i> Agendar Nueva Cita</button>
-        <button class="btn ghost" onclick="show('dentistPatients')"><i data-lucide="users"></i> Expedientes / Clientes</button>
-        <button class="btn ghost" onclick="openProfile('dentist')"><i data-lucide="user"></i> Mi Perfil</button>
-        <button class="btn ghost" onclick="show('dentistCSV')"><i data-lucide="file-spreadsheet"></i> Respaldos CSV</button>
-        <button class="btn ghost" onclick="logout()"><i data-lucide="log-out"></i> Salir</button>
+        <button class="btn" onclick="mostrar('agenda')"><i data-lucide="calendar-days"></i> Ver Agenda y Citas</button>
+        <button class="btn" onclick="mostrar('agendarPorOdontologo')"><i data-lucide="calendar-plus"></i> Agendar Nueva Cita</button>
+        <button class="btn fantasma" onclick="mostrar('pacientesOdontologo')"><i data-lucide="users"></i> Expedientes / Clientes</button>
+        <button class="btn fantasma" onclick="abrirPerfil('odontologo')"><i data-lucide="user"></i> Mi Perfil</button>
+        <button class="btn fantasma" onclick="mostrar('csvOdontologo')"><i data-lucide="file-spreadsheet"></i> Respaldos CSV</button>
+        <button class="btn fantasma" onclick="cerrarSesion()"><i data-lucide="log-out"></i> Salir</button>
       </div>
     </div>
   </section>
 
-  <section id="bookByDentist">
-    <div class="card">
+  <section id="agendarPorOdontologo">
+    <div class="tarjeta">
       <h3>Agendar Consulta en Ventanilla / Teléfono</h3>
-      <p class="muted">Ingresa los datos del paciente para asignar el espacio en tu jornada diaria.</p>
+      <p class="atenuado">Ingresa los datos del paciente para asignar el espacio en tu jornada diaria o selecciona uno existente.</p>
       
-      <label>Nombre del Paciente<input id="book_p_name" placeholder="Ej. Carlos Mendoza"></label>
-      <div class="row">
-        <label>Correo del Paciente<input id="book_p_email" type="email" placeholder="carlos@correo.com"></label>
-        <label>Teléfono Celular<input id="book_p_phone" placeholder="Ej. 555-9876"></label>
+      <input type="hidden" id="agendar_p_id" value="">
+      
+      <div style="position: relative;">
+        <label>Nombre del Paciente</label>
+        <input id="agendar_p_nombre" placeholder="Ej. Carlos Mendoza" autocomplete="off" oninput="filtrarPacientesExistentes()">
+        <div id="sugerencias_pacientes" style="position: absolute; left: 0; right: 0; background: white; border: 1px solid #cbd5e1; border-radius: 12px; max-height: 200px; overflow-y: auto; z-index: 100; display: none; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);"></div>
       </div>
 
-      <div class="row">
-        <label>Fecha del Turno<input id="book_date" type="date"></label>
-        <label>Horarios Disponibles<select id="book_time"></select></label>
+      <div class="fila">
+        <label>Correo del Paciente<input id="agendar_p_correo" type="email" placeholder="carlos@correo.com"></label>
+        <label>Teléfono Celular<input id="agendar_p_telefono" placeholder="Ej. 555-9876"></label>
       </div>
-      <label>Procedimiento / Motivo<textarea id="book_reason" placeholder="Ej. Limpieza general, Resina, Extracción..."></textarea></label>
+
+      <div class="fila">
+        <label>Fecha del Turno<input id="agendar_fecha" type="date"></label>
+        <label>Horarios Disponibles<select id="agendar_hora"></select></label>
+      </div>
+      <label>Procedimiento / Motivo<textarea id="agendar_motivo" placeholder="Ej. Limpieza general, Resina, Extracción..."></textarea></label>
       
       <div style="margin-top:24px">
-        <button class="btn" id="btnConfirmBookByDentist">Agendar Turno Seguro</button>
-        <button class="btn ghost" onclick="show('dentistMain')">Volver</button>
+        <button class="btn" id="btnConfirmarAgendarPorOdontologo">Agendar Turno Seguro</button>
+        <button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button>
       </div>
     </div>
   </section>
 
   <section id="agenda">
-    <div class="card">
+    <div class="tarjeta">
       <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px;">
-        <div><h3>Agenda de Consultas</h3><div class="muted" id="agendaInfo"></div></div>
-        <div><label style="margin-top:0">Filtrar Fecha<input id="agenda_date" type="date" style="margin-top:4px"></label></div>
+        <div><h3>Agenda de Consultas</h3><div class="atenuado" id="informacionAgenda"></div></div>
+        <div><label style="margin-top:0">Filtrar Fecha<input id="agenda_fecha" type="date" style="margin-top:4px" onchange="renderizarAgenda()"></label></div>
       </div>
       <div style="height:16px"></div>
-      <div id="agendaSlots"></div>
-      <div style="margin-top:20px"><button class="btn ghost" onclick="show('dentistMain')">Volver</button></div>
+      <div id="espaciosAgenda"></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button></div>
     </div>
   </section>
 
-  <section id="dentistPatients">
-    <div class="card">
+  <section id="pacientesOdontologo">
+    <div class="tarjeta">
       <h3>Directorio Clínico de Pacientes</h3>
-      <div id="dentistPatientsList" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn ghost" onclick="show('dentistMain')">Volver</button></div>
+      <div id="listaPacientesOdontologo" style="margin-top:14px"></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button></div>
     </div>
   </section>
 
-  <section id="dentistCSV">
-    <div class="card">
+  <section id="csvOdontologo">
+    <div class="tarjeta">
       <h3>Importar / Exportar Fichas (CSV)</h3>
-      <p class="muted" style="margin-bottom:16px">Formato del archivo aceptado: <b>Nombre, Correo, Teléfono</b></p>
+      <p class="atenuado" style="margin-bottom:16px">Formato del archivo aceptado: <b>Nombre, Correo, Teléfono</b></p>
       <div style="display:flex;gap:14px;flex-direction:column">
-        <button class="btn" id="btnExportDent" style="width:fit-content"><i data-lucide="download"></i> Exportar mis pacientes (CSV)</button>
+        <button class="btn" id="btnExportarOdontologo" style="width:fit-content"><i data-lucide="download"></i> Exportar mis pacientes (CSV)</button>
         <div style="border: 2px dashed #cbd5e1; padding: 20px; border-radius: 12px; text-align: center; background: rgba(255,255,255,0.4)">
            <label style="margin-top:0; margin-bottom:6px">Cargar archivo CSV desde tu ordenador</label>
-           <input id="inputImportDent" type="file" accept=".csv" style="width: auto; max-width:100%;">
+           <input id="inputImportarOdontologo" type="file" accept=".csv" style="width: auto; max-width:100%;">
         </div>
-        <button class="btn ghost" onclick="show('dentistMain')" style="width:fit-content">Volver</button>
+        <button class="btn fantasma" onclick="mostrar('odontologoPrincipal')" style="width:fit-content">Volver</button>
       </div>
     </div>
   </section>
 
-  <section id="adminMain">
-    <div class="card">
+  <section id="adminPrincipal">
+    <div class="tarjeta">
       <h3>Consola del Administrador</h3>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
-        <button class="btn" onclick="show('adminDentists')"><i data-lucide="shield"></i> Control Dentistas</button>
-        <button class="btn" onclick="show('adminPatients')"><i data-lucide="users"></i> Control Pacientes Global</button>
-        <button class="btn" id="btnExportAll"><i data-lucide="download-cloud"></i> Exportar Base Global (Excel/CSV)</button>
-        <button class="btn ghost" onclick="logout()"><i data-lucide="log-out"></i> Salir</button>
+        <button class="btn" onclick="mostrar('adminOdontologos')"><i data-lucide="shield"></i> Control Dentistas</button>
+        <button class="btn" onclick="mostrar('adminPacientes')"><i data-lucide="users"></i> Control Pacientes Global</button>
+        <button class="btn" id="btnExportarTodo"><i data-lucide="download-cloud"></i> Exportar Base Global (Excel/CSV)</button>
+        <button class="btn fantasma" onclick="cerrarSesion()"><i data-lucide="log-out"></i> Salir</button>
       </div>
     </div>
   </section>
 
-  <section id="adminDentists">
-    <div class="card">
+  <section id="adminOdontologos">
+    <div class="tarjeta">
       <h3>Médicos Activos</h3>
-      <div id="allDentistsList" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn ghost" onclick="show('adminMain')">Volver</button></div>
+      <div id="listaTodosOdontologos" style="margin-top:14px"></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('adminPrincipal')">Volver</button></div>
     </div>
   </section>
 
-  <section id="adminPatients">
-    <div class="card">
+  <section id="adminPacientes">
+    <div class="tarjeta">
       <h3>Pacientes Registrados</h3>
-      <div id="allPatientsList" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn ghost" onclick="show('adminMain')">Volver</button></div>
+      <div id="listaTodosPacientes" style="margin-top:14px"></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('adminPrincipal')">Volver</button></div>
     </div>
   </section>
 
-  <section id="profile">
-    <div class="card">
+  <section id="perfil">
+    <div class="tarjeta">
       <h3>Configuración del Perfil Odontológico</h3>
-      <form id="formProfile">
-        <label>Nombre Completo<input name="name"></label>
-        <label>Correo Electrónico<input name="email" type="email"></label>
-        <label>Teléfono Celular<input name="phone"></label>
-        <div id="profileExtra"></div>
+      <form id="formularioPerfil">
+        <label>Nombre Completo<input name="nombre"></label>
+        <label>Correo Electrónico<input name="correo" type="email"></label>
+        <label>Teléfono Celular<input name="telefono"></label>
+        <div id="perfilExtra"></div>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
           <button class="btn" type="submit"><i data-lucide="save"></i> Guardar Cambios</button>
-          <button class="btn ghost" type="button" onclick="show(backTarget||'welcomeScreen')">Volver</button>
-          <button class="btn warn" id="btnDeleteProfile" style="display:none" type="button"><i data-lucide="trash-2"></i> Eliminar Cuenta</button>
+          <button class="btn fantasma" type="button" onclick="mostrar(destinoVolver||'pantallaBienvenida')">Volver</button>
+          <button class="btn advertencia" id="btnEliminarPerfil" style="display:none" type="button"><i data-lucide="trash-2"></i> Eliminar Cuenta</button>
         </div>
       </form>
     </div>
   </section>
 </main>
 
-<div id="toast" class="toast"></div>
+<div id="notificacion" class="emergente"></div>
 
 <script>
-const $ = s => document.querySelector(s);
-const $$ = s => Array.from(document.querySelectorAll(s));
-const uid = () => Math.random().toString(36).slice(2,10);
+const $ = selector => document.querySelector(selector);
+const $$ = selector => Array.from(document.querySelectorAll(selector));
+const idUnico = () => Math.random().toString(36).slice(2,10);
 
-const ADMIN_PREDEF = { id:'admin-adair', role:'admin', name:'Adair Gonzalez', email:'adair.glezm@gmail.com', pass:'Nancito7' };
+const ADMIN_PREDEFINIDO = { id:'admin-adair', rol:'admin', nombre:'Adair Gonzalez', correo:'adair.glezm@gmail.com', contrasena:'Nancito7' };
 
-let selectedLoginRoleData = 'dentist';
-let backTarget = 'welcomeScreen';
+let rolInicioSeleccionado = 'odontologo';
+let destinoVolver = 'pantallaBienvenida';
 
-const store = {
-  get(){
-    const raw = localStorage.getItem('dental-app-light');
-    if(!raw) return { patients:[], dentists:[], admins:[ADMIN_PREDEF], bookings:[], session:null };
+const almacenamiento = {
+  obtener(){
+    const bruto = localStorage.getItem('dental-app-light-es');
+    if(!bruto) return { pacientes:[], odontologos:[], administradores:[ADMIN_PREDEFINIDO], citas:[], sesion:null };
     try{
-      const d = JSON.parse(raw);
-      d.admins = d.admins || [ADMIN_PREDEF];
-      if(!d.admins.find(a=>a.email.toLowerCase()===ADMIN_PREDEF.email.toLowerCase())) d.admins.push(ADMIN_PREDEF);
-      return d;
+      const datos = JSON.parse(bruto);
+      datos.administradores = datos.administradores || [ADMIN_PREDEFINIDO];
+      if(!datos.administradores.find(adm=>adm.correo.toLowerCase()===ADMIN_PREDEFINIDO.correo.toLowerCase())) datos.administradores.push(ADMIN_PREDEFINIDO);
+      return datos;
     }catch{
-      return { patients:[], dentists:[], admins:[ADMIN_PREDEF], bookings:[], session:null };
+      return { pacientes:[], odontologos:[], administradores:[ADMIN_PREDEFINIDO], citas:[], sesion:null };
     }
   },
-  set(d){ localStorage.setItem('dental-app-light', JSON.stringify(d)); },
-  up(fn){ const d=this.get(); fn(d); this.set(d); }
+  guardar(datos){ localStorage.setItem('dental-app-light-es', JSON.stringify(datos)); },
+  actualizar(funcion){ const datos=this.obtener(); funcion(datos); this.guardar(datos); }
 };
 
-function toast(msg){ 
-  const t = $('#toast'); 
-  t.textContent = msg; 
-  t.style.display='block'; 
-  setTimeout(()=>t.style.display='none', 2500); 
+function notificar(mensaje){ 
+  const elementoNotificacion = $('#notificacion'); 
+  elementoNotificacion.textContent = mensaje; 
+  elementoNotificacion.style.display='block'; 
+  setTimeout(()=>elementoNotificacion.style.display='none', 2500); 
 }
 
-function show(id){
-  $$('section').forEach(s=>s.classList.remove('active'));
-  const el = document.getElementById(id);
-  if(el) el.classList.add('active');
-  renderTopNav();
+function mostrar(id){
+  $$('section').forEach(sec=>sec.classList.remove('activo'));
+  const elemento = document.getElementById(id);
+  if(elemento) elemento.classList.add('activo');
+  renderizarNavegacionSuperior();
 
-  if(id==='login') selectLoginRole(selectedLoginRoleData);
-  if(id==='bookByDentist') prepareBookingByDentist();
-  if(id==='agenda') renderAgenda();
-  if(id==='dentistPatients') renderDentistPatients();
-  if(id==='dentistCSV') prepareDentistCSV();
-  if(id==='adminDentists') renderAllDentists();
-  if(id==='adminPatients') renderAllPatients();
-  if(id==='profile') renderProfile();
+  if(id==='iniciarSesion') seleccionarRolInicio(rolInicioSeleccionado);
+  if(id==='agendarPorOdontologo') prepararAgendarPorOdontologo();
+  if(id==='agenda') renderizarAgenda();
+  if(id==='pacientesOdontologo') renderizarPacientesOdontologo();
+  if(id==='csvOdontologo') prepararCsvOdontologo();
+  if(id==='adminOdontologos') renderizarTodosOdontologos();
+  if(id==='adminPacientes') renderizarTodosPacientes();
+  if(id==='perfil') renderizarPerfil();
   
   lucide.createIcons();
 }
 
-function selectLoginRole(role){
-  selectedLoginRoleData = role;
-  $$('#login .role-card-btn').forEach(b => b.classList.remove('active'));
-  if(role === 'dentist') $('#lblLogDentist').classList.add('active');
-  if(role === 'admin') $('#lblLogAdmin').classList.add('active');
+function seleccionarRolInicio(rol){
+  rolInicioSeleccionado = rol;
+  $$('#iniciarSesion .boton-tarjeta-rol').forEach(btn => btn.classList.remove('activo'));
+  if(rol === 'odontologo') $('#lblLogOdontologo').classList.add('activo');
+  if(rol === 'admin') $('#lblLogAdmin').classList.add('activo');
 }
 
-function renderTopNav(){
-  const nav = $('#topNav'); nav.innerHTML='';
-  const s = store.get().session;
-  if(!s){
-    nav.appendChild(el('Inicio', 'home', ()=>show('welcomeScreen')));
-    nav.appendChild(el('Acceso', 'log-in', ()=>show('access')));
-  } else if(s.role==='dentist'){
-    nav.appendChild(el('Panel', 'layout-dashboard', ()=>show('dentistMain')));
-    nav.appendChild(el('Agendar', 'calendar-plus', ()=>show('bookByDentist')));
-    nav.appendChild(el('Agenda', 'calendar-days', ()=>show('agenda')));
-    nav.appendChild(el('Perfil', 'user', ()=>{ backTarget='dentistMain'; show('profile'); }));
-    nav.appendChild(el('Salir', 'log-out', ()=>logout()));
-  } else if(s.role==='admin'){
-    nav.appendChild(el('Admin', 'shield', ()=>show('adminMain')));
-    nav.appendChild(el('Salir', 'log-out', ()=>logout()));
+function renderizarNavegacionSuperior(){
+  const nav = $('#navegacionSuperior'); nav.innerHTML='';
+  const sesionActiva = almacenamiento.obtener().sesion;
+  if(!nav) return;
+  if(!sesionActiva){
+    nav.appendChild(crearElemento('Inicio', 'home', ()=>mostrar('pantallaBienvenida')));
+    nav.appendChild(crearElemento('Acceso', 'log-in', ()=>mostrar('acceso')));
+  } else if(sesionActiva.rol==='odontologo'){
+    nav.appendChild(crearElemento('Panel', 'layout-dashboard', ()=>mostrar('odontologoPrincipal')));
+    nav.appendChild(crearElemento('Agendar', 'calendar-plus', ()=>mostrar('agendarPorOdontologo')));
+    nav.appendChild(crearElemento('Agenda', 'calendar-days', ()=>mostrar('agenda')));
+    nav.appendChild(crearElemento('Perfil', 'user', ()=>{ destinoVolver='odontologoPrincipal'; mostrar('perfil'); }));
+    nav.appendChild(crearElemento('Salir', 'log-out', ()=>cerrarSesion()));
+  } else if(sesionActiva.rol==='admin'){
+    nav.appendChild(crearElemento('Admin', 'shield', ()=>mostrar('adminPrincipal')));
+    nav.appendChild(crearElemento('Salir', 'log-out', ()=>cerrarSesion()));
   }
   lucide.createIcons();
 }
 
-function el(label, icon, fn){ 
-  const b=document.createElement('button'); 
-  b.innerHTML=`<i data-lucide="${icon}" style="width:16px;height:16px"></i> <span>${label}</span>`; 
-  b.onclick=fn; 
-  return b; 
+function crearElemento(etiqueta, icono, funcion){ 
+  const btn=document.createElement('button'); 
+  btn.innerHTML=`<i data-lucide="${icono}" style="width:16px;height:16px"></i> <span>${etiqueta}</span>`; 
+  btn.onclick=funcion; 
+  return btn; 
 }
 
-function togglePasswordVisibility(inputId, buttonEl) {
-  const input = document.getElementById(inputId);
+function alternarVisibilidadContrasena(idInput, elementoBoton) {
+  const input = document.getElementById(idInput);
   if (!input) return;
   
   if (input.type === 'password') {
     input.type = 'text';
-    buttonEl.innerHTML = '<i data-lucide="eye-off"></i>'; 
+    elementoBoton.innerHTML = '<i data-lucide="eye-off"></i>'; 
   } else {
     input.type = 'password';
-    buttonEl.innerHTML = '<i data-lucide="eye"></i>';     
+    elementoBoton.innerHTML = '<i data-lucide="eye"></i>';     
   }
   lucide.createIcons();
 }
 
-function emailExists(email){
-  const d = store.get();
-  const e = (email||'').trim().toLowerCase();
-  if(!e) return false;
-  return d.patients.some(p=>p.email.toLowerCase()===e) || d.dentists.some(x=>x.email.toLowerCase()===e) || (d.admins && d.admins.some(a=>a.email.toLowerCase()===e));
+function existeEmail(correo){
+  const datos = almacenamiento.obtener();
+  const correoLimpio = (correo||'').trim().toLowerCase();
+  if(!correoLimpio) return false;
+  return datos.pacientes.some(pac=>pac.correo.toLowerCase()===correoLimpio) || datos.odontologos.some(odo=>odo.correo.toLowerCase()===correoLimpio) || (datos.administradores && datos.administradores.some(adm=>adm.correo.toLowerCase()===correoLimpio));
 }
 
-$('#btnRegDent').onclick = ()=>{
-  const name = $('#reg_d_name').value.trim(); const email = $('#reg_d_email').value.trim();
-  const phone = $('#reg_d_phone').value.trim(); const spec = $('#reg_d_spec').value.trim();
-  const start = $('#reg_d_start').value || '09:00'; const end = $('#reg_d_end').value || '17:00';
-  const slot = parseInt($('#reg_d_slot').value || '30',10); const pass = $('#reg_d_pass').value;
-  if(!name||!email||!spec||!pass){ toast('Completa los campos obligatorios'); return; }
-  if(emailExists(email)){ toast('El correo ya existe registrado'); return; }
-  store.up(d=>d.dentists.push({ id: uid(), role:'dentist', name, email, phone, spec, start, end, slot, pass }));
-  toast('¡Especialista registrado exitosamente!'); 
+$('#btnRegOdontologo').onclick = ()=>{
+  const nombre = $('#reg_o_nombre').value.trim(); const correo = $('#reg_o_correo').value.trim();
+  const telephone = $('#reg_o_telefono').value.trim(); const especialidad = $('#reg_o_especialidad').value.trim();
+  const inicio = $('#reg_o_inicio').value || '09:00'; const fin = $('#reg_o_fin').value || '17:00';
+  const duracion = parseInt($('#reg_o_duracion').value || '30',10); const contrasena = $('#reg_o_contrasena').value;
+  if(!nombre||!correo||!especialidad||!contrasena){ notificar('Completa los campos obligatorios'); return; }
+  if(existeEmail(correo)){ notificar('El correo ya existe registrado'); return; }
+  almacenamiento.actualizar(datos=>datos.odontologos.push({ id: idUnico(), rol:'odontologo', nombre, correo, telefono: telephone, especialidad, inicio, fin, duracion, contrasena }));
+  notificar('¡Especialista registrado exitosamente!'); 
   
-  /* ===== AQUÍ SE LIMPIAN LOS CAMPOS PARA EL PRÓXIMO REGISTRO ===== */
-  $('#reg_d_name').value = '';
-  $('#reg_d_email').value = '';
-  $('#reg_d_phone').value = '';
-  $('#reg_d_spec').value = '';
-  $('#reg_d_start').value = '09:00';
-  $('#reg_d_end').value = '17:00';
-  $('#reg_d_slot').value = '30';
-  $('#reg_d_pass').value = '';
+  $('#reg_o_nombre').value = '';
+  $('#reg_o_correo').value = '';
+  $('#reg_o_telefono').value = '';
+  $('#reg_o_especialidad').value = '';
+  $('#reg_o_inicio').value = '09:00';
+  $('#reg_o_fin').value = '17:00';
+  $('#reg_o_duracion').value = '30';
+  $('#reg_o_contrasena').value = '';
   
-  selectLoginRole('dentist'); show('login');
+  seleccionarRolInicio('odontologo'); mostrar('iniciarSesion');
 };
 
-$('#btnLogin').onclick = ()=>{
-  const role = selectedLoginRoleData;
-  const email = ($('#login_email').value||'').trim().toLowerCase(); const pass = $('#login_pass').value;
-  const d = store.get();
+$('#btnIngresar').onclick = ()=>{
+  const rol = rolInicioSeleccionado;
+  const correo = ($('#login_correo').value||'').trim().toLowerCase(); const contrasena = $('#login_contrasena').value;
+  const datos = almacenamiento.obtener();
   
-  if(role==='dentist'){
-    const u = d.dentists.find(p=>p.email.toLowerCase()===email && p.pass===pass);
-    if(!u){ toast('Credenciales inválidas'); return; }
-    store.up(x=>x.session = { id: u.id, role: 'dentist' });
-    prepareAfterLogin(); show('dentistMain'); return;
+  if(rol==='odontologo'){
+    const usuario = datos.odontologos.find(odo=>odo.correo.toLowerCase()===correo && odo.contrasena===contrasena);
+    if(!usuario){ notificar('Credenciales inválidas'); return; }
+    almacenamiento.actualizar(act=>act.sesion = { id: usuario.id, rol: 'odontologo' });
+    prepararDespuesInicio(); mostrar('odontologoPrincipal'); return;
   }
-  if(role==='admin'){
-    const u = d.admins && d.admins.find(a=>a.email.toLowerCase()===email && a.pass===pass);
-    if(!u){ toast('Credenciales inválidas'); return; }
-    store.up(x=>x.session = { id: u.id||'admin', role:'admin' });
-    prepareAfterLogin(); show('adminMain'); return;
+  if(rol==='admin'){
+    const usuario = datos.administradores && datos.administradores.find(adm=>adm.correo.toLowerCase()===correo && adm.contrasena===contrasena);
+    if(!usuario){ notificar('Credenciales inválidas'); return; }
+    almacenamiento.actualizar(act=>act.sesion = { id: usuario.id||'admin', rol:'admin' });
+    prepararDespuesInicio(); mostrar('adminPrincipal'); return;
   }
 };
 
-function prepareAfterLogin(){
-  const today = new Date().toISOString().slice(0,10);
-  $('#book_date').value = today;
-  $('#book_date').setAttribute('min', today);
-  $('#agenda_date').value = today;
+function obtenerFechaLocalMexicoYMD() {
+  const d = new Date();
+  const anio = d.getFullYear();
+  const mes = String(d.getMonth() + 1).padStart(2, '0');
+  const dia = String(d.getDate()).padStart(2, '0');
+  return `${anio}-${mes}-${dia}`;
 }
 
-function prepareBookingByDentist(){
-  const today = new Date().toISOString().slice(0,10);
-  $('#book_date').setAttribute('min', today);
-  if(!$('#book_date').value) {
-    $('#book_date').value = today;
-  }
-  $('#book_p_name').value = '';
-  $('#book_p_email').value = '';
-  $('#book_p_phone').value = '';
-  $('#book_reason').value = '';
-  
-  generateSlotsForDentist();
+function prepararDespuesInicio(){
+  const hoy = obtenerFechaLocalMexicoYMD();
+  $('#agendar_fecha').value = hoy;
+  $('#agendar_fecha').setAttribute('min', hoy);
+  $('#agenda_fecha').value = hoy;
 }
 
-$('#book_date').onchange = generateSlotsForDentist;
-
-function generateSlotsForDentist(){
-  const day = $('#book_date').value;
-  $('#book_time').innerHTML = ''; if(!day) return;
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
-  
-  const data = store.get(); const den = data.dentists.find(x=>x.id===s.id); if(!den) return;
-  const [h1,m1] = (den.start||'09:00').split(':').map(Number);
-  const [h2,m2] = (den.end||'17:00').split(':').map(Number);
-  const start = new Date(day + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
-  const end = new Date(day + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
-  const taken = data.bookings.filter(b=>b.dentistId===s.id && b.date===day && b.status!=='cancelled').map(b=>b.time);
-  
-  for(let t=new Date(start); t<end; t=new Date(t.getTime()+(den.slot||30)*60000)){
-    const label = `${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`;
-    if(!taken.includes(label)){
-      const op = document.createElement('option'); op.value = label; op.textContent = label; $('#book_time').appendChild(op);
-    }
+function prepararAgendarPorOdontologo(){
+  const hoy = obtenerFechaLocalMexicoYMD();
+  $('#agendar_fecha').setAttribute('min', hoy);
+  if(!$('#agendar_fecha').value) {
+    $('#agendar_fecha').value = hoy;
   }
-  if(!$('#book_time').children.length){
-    const op = document.createElement('option'); op.value=''; op.textContent='Sin horarios'; $('#book_time').appendChild(op);
-  }
+  $('#agendar_p_id').value = '';
+  $('#agendar_p_nombre').value = '';
+  $('#agendar_p_correo').value = '';
+  $('#agendar_p_telefono').value = '';
+  $('#agendar_motivo').value = '';
+  if($('#sugerencias_pacientes')) $('#sugerencias_pacientes').style.display = 'none';
+  
+  generarEspaciosOdontologo();
 }
 
-$('#btnConfirmBookByDentist').onclick = ()=>{
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
-  const pName = $('#book_p_name').value.trim();
-  const pEmail = $('#book_p_email').value.trim();
-  const pPhone = $('#book_p_phone').value.trim();
-  const date = $('#book_date').value; 
-  const time = $('#book_time').value; 
-  const motivo = $('#book_reason').value.trim();
+$('#agendar_fecha').onchange = generarEspaciosOdontologo;
+
+function generarEspaciosOdontologo(){
+  const dia = $('#agendar_fecha').value;
+  $('#agendar_hora').innerHTML = ''; if(!dia) return;
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
   
-  if(!pName || !date || !time){ toast('Ingresa el nombre del paciente, fecha y hora'); return; }
+  const datos = almacenamiento.obtener(); const odontologo = datos.odontologos.find(odo=>odo.id===sesionActiva.id); if(!odontologo) return;
+  const [h1,m1] = (odontologo.inicio||'09:00').split(':').map(Number);
+  const [h2,m2] = (odontologo.fin||'17:00').split(':').map(Number);
+  const inicio = new Date(dia + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
+  const fin = new Date(dia + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
   
-  store.up(d=>{
-    let patient = d.patients.find(x=>x.email && x.email.toLowerCase() === pEmail.toLowerCase());
-    if(!patient && pEmail){
-      patient = { id: uid(), role:'patient', name: pName, email: pEmail, phone: pPhone, pass:'' };
-      d.patients.push(patient);
-    } else if(!patient) {
-      patient = { id: uid(), role:'patient', name: pName, email: pEmail||`${uid()}@interno.com`, phone: pPhone, pass:'' };
-      d.patients.push(patient);
+  const ocupados = datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id && cit.fecha===dia && cit.estado!=='cancelado').map(cit=>cit.hora);
+
+  const ahora = new Date();
+
+  for(let tiempo=new Date(inicio); tiempo<fin; tiempo=new Date(tiempo.getTime()+(odontologo.duracion||30)*60000)){
+    const etiquetaHora = `${String(tiempo.getHours()).padStart(2,'0')}:${String(tiempo.getMinutes()).padStart(2,'0')}`;
+    
+    const horaBloque = new Date(dia + 'T' + etiquetaHora + ':00');
+    if(horaBloque < ahora) {
+      continue;
     }
     
-    d.bookings.push({ id: uid(), patientId: patient.id, dentistId: s.id, date, time, motivo, status:'confirmed', createdAt: Date.now() });
+    if(!ocupados.includes(etiquetaHora)){
+      const op = document.createElement('option'); op.value = etiquetaHora; op.textContent = etiquetaHora; $('#agendar_hora').appendChild(op);
+    }
+  }
+  if(!$('#agendar_hora').children.length){
+    const op = document.createElement('option'); op.value=''; op.textContent='Sin horarios'; $('#agendar_hora').appendChild(op);
+  }
+}
+
+function filtrarPacientesExistentes() {
+  const input = $('#agendar_p_nombre');
+  const contenedor = $('#sugerencias_pacientes');
+  const filtro = input.value.trim().toLowerCase();
+  
+  $('#agendar_p_id').value = '';
+
+  if (!filtro) {
+    contenedor.innerHTML = '';
+    contenedor.style.display = 'none';
+    return;
+  }
+
+  const datos = almacenamiento.obtener();
+  const coincidentes = datos.pacientes.filter(pac => pac.nombre.toLowerCase().includes(filtro));
+
+  if (coincidentes.length === 0) {
+    contenedor.innerHTML = '';
+    contenedor.style.display = 'none';
+    return;
+  }
+
+  contenedor.innerHTML = coincidentes.map(pac => {
+    const correoMostrable = pac.correo.includes('@interno.com') ? 'Sin correo' : pac.correo;
+    return `<div style="padding: 10px 16px; cursor: pointer; border-bottom: 1px solid #f1f5f9; font-size: 14px;" 
+                 onclick="seleccionarPacienteExistente('${pac.id}', '${pac.nombre.replace(/'/g, "\\'")}', '${pac.correo}', '${pac.telefono}')"
+                 onmouseover="this.style.backgroundColor='#f8fafc'" 
+                 onmouseout="this.style.backgroundColor='white'">
+              <b>${pac.nombre}</b> <span style="color: var(--atenuado); font-size: 12px;">(${correoMostrable} • ${pac.telefono || 'Sin Tel.'})</span>
+            </div>`;
+  }).join('');
+  
+  contenedor.style.display = 'block';
+}
+
+function seleccionarPacienteExistente(id, nombre, correo, telefono) {
+  $('#agendar_p_id').value = id;
+  $('#agendar_p_nombre').value = nombre;
+  $('#agendar_p_correo').value = correo.includes('@interno.com') ? '' : correo;
+  $('#agendar_p_telefono').value = telefono || '';
+  
+  const contenedor = $('#sugerencias_pacientes');
+  contenedor.innerHTML = '';
+  contenedor.style.display = 'none';
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.id !== 'agendar_p_nombre' && e.target.id !== 'sugerencias_pacientes') {
+    if($('#sugerencias_pacientes')) $('#sugerencias_pacientes').style.display = 'none';
+  }
+});
+
+$('#btnConfirmarAgendarPorOdontologo').onclick = ()=>{
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
+  const pacienteIdExistente = $('#agendar_p_id').value;
+  const pacienteNombre = $('#agendar_p_nombre').value.trim();
+  const pacienteCorreo = $('#agendar_p_correo').value.trim();
+  const pacienteTelefono = $('#agendar_p_telefono').value.trim();
+  const fecha = $('#agendar_fecha').value; 
+  const hora = $('#agendar_hora').value; 
+  const motivo = $('#agendar_motivo').value.trim();
+  
+  if(!pacienteNombre || !fecha || !hora){ notificar('Ingresa el nombre del paciente, fecha y hora'); return; }
+  
+  almacenamiento.actualizar(datos=>{
+    let paciente;
+
+    if (pacienteIdExistente) {
+      paciente = datos.pacientes.find(pac => pac.id === pacienteIdExistente);
+      if (paciente) {
+        paciente.nombre = pacienteNombre;
+        if(pacienteCorreo) paciente.correo = pacienteCorreo;
+        paciente.telefono = pacienteTelefono;
+      }
+    } else {
+      if (pacienteCorreo) {
+        paciente = datos.pacientes.find(pac => pac.correo && pac.correo.toLowerCase() === pacienteCorreo.toLowerCase());
+      }
+    }
+    
+    if(!paciente) {
+      paciente = { id: idUnico(), rol:'paciente', nombre: pacienteNombre, correo: pacienteCorreo||`${idUnico()}@interno.com`, telefono: pacienteTelefono, contrasena:'' };
+      datos.pacientes.push(paciente);
+    }
+    
+    datos.citas.push({ id: idUnico(), pacienteId: paciente.id, odontologoId: sesionActiva.id, fecha, hora, motivo, estado:'confirmado', creadoEn: Date.now() });
   });
   
-  toast('¡Consulta agendada y confirmed!'); 
-  show('dentistMain');
+  notificar('¡Consulta agendada y confirmada!'); 
+  mostrar('odontologoPrincipal');
 };
 
-function renderAgenda(){
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
-  const data = store.get(); const den = data.dentists.find(x=>x.id===s.id);
-  const day = $('#agenda_date').value || new Date().toISOString().slice(0,10);
-  $('#agenda_date').value = day;
-  $('#agendaInfo').textContent = `Dr(a). ${den.name} • Horario: ${den.start}–${den.end}`;
-  const bookingsForDay = data.bookings.filter(b=>b.dentistId===den.id && b.date===day).sort((a,b)=>a.time.localeCompare(b.time));
-  const container = $('#agendaSlots'); container.innerHTML = '';
-  const [h1,m1] = (den.start||'09:00').split(':').map(Number);
-  const [h2,m2] = (den.end||'17:00').split(':').map(Number);
-  const start = new Date(day + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
-  const end = new Date(day + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
-  for(let t=new Date(start); t<end; t=new Date(t.getTime()+(den.slot||30)*60000)){
-    const slot = `${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}`;
-    const b = bookingsForDay.find(x=>x.time===slot);
-    const row = document.createElement('div'); row.className = 'list-item';
-    if(b){
-      const p = data.patients.find(x=>x.id===b.patientId);
-      row.innerHTML = `<div>
-        <div style="font-weight:700; color:var(--text);">${slot} — ${p?p.name:'Paciente'} <span class="pill ${b.status}" style="font-size:10px;">${b.status}</span></div>
-        <div class="muted" style="font-size:13px; margin-top:2px;">${p? (p.email + ' • ' + p.phone) : ''}</div>
-        ${b.motivo?`<div class="muted" style="font-size:13px; font-style:italic;">Procedimiento: ${b.motivo}</div>`:''}
-      </div>
-      <div style="display:flex;gap:6px;">
-        <button class="btn" style="padding:6px 12px; font-size:13px" onclick="updateBookingStatus('${b.id}','confirmed')">Confirmar</button>
-        <button class="btn ghost" style="padding:6px 12px; font-size:13px" onclick="updateBookingStatus('${b.id}','pending')">Atendiendo</button>
-        <button class="btn warn" style="padding:6px 12px; font-size:13px" onclick="updateBookingStatus('${b.id}','cancelled')">Cancelar Turno</button>
-      </div>`;
+function renderizarAgenda(){
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
+  const datos = almacenamiento.obtener(); const odontologo = datos.odontologos.find(odo=>odo.id===sesionActiva.id);
+  const dia = $('#agenda_fecha').value || obtenerFechaLocalMexicoYMD();
+  $('#agenda_fecha').value = dia;
+  $('#informacionAgenda').textContent = `Dr(a). ${odontologo.nombre} • Horario: ${odontologo.inicio}–${odontologo.fin}`;
+  
+  const citasDelDia = datos.citas.filter(cit=>cit.odontologoId===odontologo.id && cit.fecha===dia && cit.estado!=='cancelado').sort((a,b)=>a.hora.localeCompare(b.hora));
+  const contenedor = $('#espaciosAgenda'); contenedor.innerHTML = '';
+  const [h1,m1] = (odontologo.inicio||'09:00').split(':').map(Number);
+  const [h2,m2] = (odontologo.fin||'17:00').split(':').map(Number);
+  const inicio = new Date(dia + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
+  const fin = new Date(dia + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
+  
+  const ahora = new Date();
+
+  for(let tiempo=new Date(inicio); tiempo<fin; tiempo=new Date(tiempo.getTime()+(odontologo.duracion||30)*60000)){
+    const espacio = `${String(tiempo.getHours()).padStart(2,'0')}:${String(tiempo.getMinutes()).padStart(2,'0')}`;
+    
+    const cita = citasDelDia.find(cit=>cit.hora===espacio);
+    const filaElemento = document.createElement('div'); filaElemento.className = 'elemento-lista';
+    
+    const horaInicioCita = new Date(dia + 'T' + espacio + ':00');
+
+    if(cita){
+      const pac = datos.pacientes.find(pac=>pac.id===cita.pacienteId);
+      let estadoActual = cita.estado;
+
+      const horaLimiteTolerancia = new Date(horaInicioCita.getTime() + 15 * 60000);
+      
+      const yaEmpezoCita = ahora >= horaInicioCita;
+      const yaExpiroTolerancia = ahora >= horaLimiteTolerancia;
+
+      if(yaExpiroTolerancia) {
+        if(estadoActual === 'pendiente') {
+          estadoActual = 'completada';
+        } else if(estadoActual === 'noasistio') {
+          estadoActual = 'noasistio';
+        } else if(estadoActual === 'confirmado') {
+          estadoActual = 'expirada';
+        }
+      }
+
+      if(estadoActual === 'noasistio'){
+        filaElemento.innerHTML = `<div>
+          <div style="font-weight:700; color:#b91c1c;">${espacio} — El paciente ${pac?pac.nombre:'paciente'} NO ASISTIÓ</div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">Contacto: ${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
+        </div>
+        <div style="display:flex; gap:6px; align-items:center;">
+          <span class="etiqueta noasistio" style="font-size:11px;">Inasistencia Registrada</span>
+          ${!yaExpiroTolerancia ? `<button class="btn fantasma" style="padding:6px 12px; font-size:13px;" onclick="actualizarEstadoCita('${cita.id}','pendiente')">Cambiar a Atendiendo</button>` : `<span class="atenuado" style="font-size:12px; font-style:italic;">Opciones bloqueadas</span>`}
+        </div>`;
+      } else if(estadoActual === 'completada') {
+        filaElemento.innerHTML = `<div>
+          <div style="font-weight:700; color:var(--texto);">${espacio} — Paciente: ${pac?pac.nombre:'Paciente'} <span class="etiqueta completada" style="font-size:10px;">Completada</span></div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
+          ${cita.motivo?`<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${cita.motivo}</div>`:''}
+        </div>
+        <div style="display:flex;gap:6px;">
+          <span class="atenuado" style="font-size:12px; align-self:center; font-style:italic;">Consulta cerrada automáticamente</span>
+        </div>`;
+      } else if(estadoActual === 'expirada') {
+        filaElemento.innerHTML = `<div>
+          <div style="font-weight:700; color:#64748b;">${espacio} — Cita Expirada (Sin acción en tolerancia)</div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">Paciente: ${pac?pac.nombre:'Paciente'}</div>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <span class="atenuado" style="font-size:12px; align-self:center; font-style:italic;">Tolerancia terminada</span>
+        </div>`;
+      } else {
+        let botonesHtml = '';
+        
+        if (!yaEmpezoCita) {
+          botonesHtml = `
+            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#10b981;" onclick="actualizarEstadoCita('${cita.id}','confirmado')">Confirmar</button>
+            <button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="actualizarEstadoCita('${cita.id}','cancelado')">Cancelar Turno</button>
+          `;
+        } else {
+          botonesHtml = `
+            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#0284c7;" onclick="actualizarEstadoCita('${cita.id}','pendiente')">Atendiendo</button>
+            <button class="btn naranja" style="padding:6px 12px; font-size:13px; color:white;" onclick="actualizarEstadoCita('${cita.id}','noasistio')">No asistió</button>
+          `;
+        }
+
+        filaElemento.innerHTML = `<div>
+          <div style="font-weight:700; color:var(--texto);">${espacio} — Paciente: ${pac?pac.nombre:'Paciente'} <span class="etiqueta ${estadoActual}" style="font-size:10px;">${estadoActual === 'pendiente' ? 'Atendiendo' : estadoActual}</span></div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
+          ${cita.motivo?`<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${cita.motivo}</div>`:''}
+        </div>
+        <div style="display:flex;gap:6px;align-items:center;">
+          ${botonesHtml}
+        </div>`;
+      }
     } else {
-      row.innerHTML = `<div style="font-weight:700; color:var(--muted);">${slot} — Espacio Libre</div>`;
+      if (ahora >= horaInicioCita) {
+        filaElemento.innerHTML = `<div style="font-weight:600; color:var(--atenuado); font-style:italic;">${espacio} — Horario Expirado / No disponible</div>`;
+      } else {
+        filaElemento.innerHTML = `<div style="font-weight:700; color:var(--primario);">${espacio} — Espacio Libre Disponible</div>`;
+      }
     }
-    container.appendChild(row);
+    contenedor.appendChild(filaElemento);
   }
   lucide.createIcons();
 }
 
-function updateBookingStatus(id,status){
-  store.up(d=> { const b = d.bookings.find(x=>x.id===id); if(b) b.status = status; });
-  toast(`Cita modificada a ${status}`); renderAgenda();
+function actualizarEstadoCita(id, estado){
+  almacenamiento.actualizar(datos=> { 
+    const cit = datos.citas.find(cit=>cit.id===id); 
+    if(cit) {
+      if(estado === 'cancelado') {
+        datos.citas = datos.citas.filter(c => c.id !== id);
+      } else {
+        cit.estado = estado; 
+      }
+    }
+  });
+  
+  let mensajeEstado = estado;
+  if(estado === 'pendiente') mensajeEstado = 'Paciente en atención (Se guardará como Completada al expirar la tolerancia)';
+  if(estado === 'noasistio') mensajeEstado = 'No asistió (Se bloquearán los cambios al expirar la tolerancia)';
+  if(estado === 'cancelado') mensajeEstado = 'Turno Cancelado y borrado';
+  if(estado === 'confirmado') mensajeEstado = 'Turno Confirmado';
+  
+  notificar(mensajeEstado); 
+  renderizarAgenda();
 }
 
-function renderDentistPatients(){
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
-  const data = store.get();
-  const patientIds = [...new Set(data.bookings.filter(b=>b.dentistId===s.id).map(b=>b.patientId))];
-  const patients = data.patients.filter(p=>patientIds.includes(p.id));
-  const container = $('#dentistPatientsList');
-  if(!patients.length){ container.innerHTML = '<div class="muted">No tienes pacientes históricos agendados aún.</div>'; return; }
-  container.innerHTML = patients.map(p=>{
-    return `<div class="list-item">
-      <div><div style="font-weight:700">${p.name}</div><div class="muted">${p.email.includes('@interno.com')?'Sin correo':p.email} • Tel: ${p.phone||'Sin teléfono'}</div></div>
+function renderizarPacientesOdontologo(){
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
+  const datos = almacenamiento.obtener();
+  const idsPacientes = [...new Set(datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id).map(cit=>cit.pacienteId))];
+  const pacientes = datos.pacientes.filter(pac=>idsPacientes.includes(pac.id));
+  const contenedor = $('#listaPacientesOdontologo');
+  if(!pacientes.length){ contenedor.innerHTML = '<div class="atenuado">No tienes pacientes históricos agendados aún.</div>'; return; }
+  contenedor.innerHTML = pacientes.map(pac=>{
+    return `<div class="elemento-lista">
+      <div><div style="font-weight:700">${pac.nombre}</div><div class="atenuado">${pac.correo.includes('@interno.com')?'Sin correo':pac.correo} • Tel: ${pac.telefono||'Sin teléfono'}</div></div>
       <div style="display:flex;gap:8px">
-        <button class="btn ghost" style="padding:8px 14px; font-size:13px" onclick="openWhats('${p.phone}')">WhatsApp</button>
-        <button class="btn warn" style="padding:8px 14px; font-size:13px" onclick="dentistDeletePatient('${p.id}')">Eliminar Ficha</button>
+        <button class="btn fantasma" style="padding:8px 14px; font-size:13px" onclick="abrirWhatsapp('${pac.telefono}')">WhatsApp</button>
+        <button class="btn advertencia" style="padding:8px 14px; font-size:13px" onclick="odontologoEliminarPaciente('${pac.id}')">Eliminar Ficha</button>
       </div>
     </div>`;
   }).join('');
 }
 
-function dentistDeletePatient(pid){
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
+function odontologoEliminarPaciente(idPaciente){
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
   if(!confirm('¿Remover este paciente del historial y cancelar sus turnos vigentes?')) return;
-  store.up(x=>{ x.patients = x.patients.filter(p=>p.id!==pid); x.bookings = x.bookings.filter(b=>b.patientId!==pid); });
-  toast('Paciente removido'); renderDentistPatients();
+  almacenamiento.actualizar(act=>{ act.pacientes = act.pacientes.filter(pac=>pac.id!==idPaciente); act.citas = act.citas.filter(cit=>cit.pacienteId!==idPaciente); });
+  notificar('Paciente removido'); renderizarPacientesOdontologo();
 }
 
-function renderAllDentists(){
-  const d = store.get();
-  $('#allDentistsList').innerHTML = d.dentists.map(dd=>`<div class="list-item"><div><div style="font-weight:700">${dd.name}</div><div class="muted">${dd.email} • ${dd.spec||''}</div></div><div><button class="btn warn" style="padding:6px 12px; font-size:13px" onclick="adminDeleteDentist_impl('${dd.id}')">Eliminar Médico</button></div></div>`).join('') || '<div class="muted">No hay doctores en el sistema.</div>';
+function renderizarTodosOdontologos(){
+  const datos = almacenamiento.obtener();
+  $('#listaTodosOdontologos').innerHTML = datos.odontologos.map(odo=>`<div class="elemento-lista"><div><div style="font-weight:700">${odo.nombre}</div><div class="atenuado">${odo.correo} • ${odo.especialidad||''}</div></div><div><button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="adminEliminarOdontologo_impl('${odo.id}')">Eliminar Médico</button></div></div>`).join('') || '<div class="atenuado">No hay doctores en el sistema.</div>';
 }
 
-function renderAllPatients(){
-  const d = store.get();
-  if(!d.patients.length) {
-    $('#allPatientsList').innerHTML = '<div class="muted">Sin expedientes registrados.</div>';
+function renderizarTodosPacientes(){
+  const datos = almacenamiento.obtener();
+  if(!datos.pacientes.length) {
+    $('#listaTodosPacientes').innerHTML = '<div class="atenuado">Sin expedientes registrados.</div>';
     return;
   }
   
-  $('#allPatientsList').innerHTML = d.patients.map(p=>{
-    const lastBooking = d.bookings
-      .filter(b => b.patientId === p.id && b.status !== 'cancelled')
-      .sort((a,b) => b.createdAt - a.createdAt)[0];
+  $('#listaTodosPacientes').innerHTML = datos.pacientes.map(pac=>{
+    const ultimaCita = datos.citas
+      .filter(cit => cit.pacienteId === pac.id && cit.estado !== 'cancelado')
+      .sort((a,b) => b.creadoEn - a.creadoEn)[0];
     
-    let specialistName = 'Sin consultas asignadas';
-    if(lastBooking) {
-      const dent = d.dentists.find(x => x.id === lastBooking.dentistId);
-      if(dent) specialistName = `Dr(a). ${dent.name}`;
+    let nombreEspecialista = 'Sin consultas asignadas';
+    if(ultimaCita) {
+      const odo = datos.odontologos.find(odo => odo.id === ultimaCita.odontologoId);
+      if(odo) nombreEspecialista = `Dr(a). ${odo.nombre}`;
     }
 
-    return `<div class="list-item">
+    return `<div class="elemento-lista">
       <div>
-        <div style="font-weight:700">${p.name}</div>
-        <div class="muted">${p.email.includes('@interno.com')?'Sin correo':p.email} • Tel: ${p.phone||'-'}</div>
-        <div style="margin-top:6px;"><span class="pill doctor">Atendido por: ${specialistName}</span></div>
+        <div style="font-weight:700">${pac.nombre}</div>
+        <div class="atenuado">${pac.correo.includes('@interno.com')?'Sin correo':pac.correo} • Tel: ${pac.telefono||'-'}</div>
+        <div style="margin-top:6px;"><span class="etiqueta medico">Atendido por: ${nombreEspecialista}</span></div>
       </div>
       <div style="display:flex;gap:6px;align-items:center;">
-        <button class="btn ghost" style="padding:6px 12px; font-size:13px" onclick="openWhats('${p.phone}')">WhatsApp</button>
-        <button class="btn warn" style="padding:6px 12px; font-size:13px" onclick="adminDeletePatient_impl('${p.id}')">Baja Sistema</button>
+        <button class="btn fantasma" style="padding:6px 12px; font-size:13px" onclick="abrirWhatsapp('${pac.telefono}')">WhatsApp</button>
+        <button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="adminEliminarPaciente_impl('${pac.id}')">Baja Sistema</button>
       </div>
     </div>`;
   }).join('');
 }
 
-function adminDeleteDentist_impl(id){
+function adminEliminarOdontologo_impl(id){
   if(!confirm('¿Dar de baja a este médico del sistema central?')) return;
-  store.up(d=>{ d.dentists = d.dentists.filter(x=>x.id!==id); d.bookings = d.bookings.filter(b=>b.dentistId!==id); });
-  toast('Dentista eliminado'); renderAllDentists();
+  almacenamiento.actualizar(datos=>{ datos.odontologos = datos.odontologos.filter(odo=>odo.id!==id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==id); });
+  notificar('Dentista eliminado'); renderizarTodosOdontologos();
 }
-function adminDeletePatient_impl(id){
+function adminEliminarPaciente_impl(id){
   if(!confirm('¿Eliminar al paciente de la base global?')) return;
-  store.up(d=>{ d.patients = d.patients.filter(p=>p.id!==id); d.bookings = d.bookings.filter(b=>b.dentistId!==id); });
-  toast('Paciente eliminado'); renderAllPatients();
+  almacenamiento.actualizar(datos=>{ datos.pacientes = datos.pacientes.filter(pac=>pac.id!==id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==id); });
+  notificar('Paciente eliminado'); renderizarTodosPacientes();
 }
 
-function openProfile(role){ backTarget = 'dentistMain'; show('profile'); }
-function renderProfile(){
-  const s = store.get().session; if(!s) return show('login');
-  const data = store.get(); const user = data.dentists.find(x=>x.id===s.id);
-  if(!user) return;
-  $('#formProfile [name="name"]').value = user.name || '';
-  $('#formProfile [name="email"]').value = user.email || '';
-  $('#formProfile [name="phone"]').value = user.phone || '';
-  const extra = $('#profileExtra'); extra.innerHTML = ''; $('#btnDeleteProfile').style.display = 'none';
-  if(s.role==='dentist'){
-    extra.innerHTML = `<label>Especialidad Médica<input name="spec" value="${user.spec||''}"></label>
-      <div class="row"><label>Inicio Jornada<input name="start" type="time" value="${user.start||'09:00'}"></label><label>Fin Jornada<input name="end" type="time" value="${user.end||'17:00'}"></label></div>
-      <label>Tiempo de consulta (min)<select name="slot"><option ${user.slot==30?'selected':''}>30</option><option ${user.slot==45?'selected':''}>45</option><option ${user.slot==60?'selected':''}>60</option></select></label>`;
-    $('#btnDeleteProfile').style.display = 'inline-block';
+function abrirPerfil(rol){ destinoVolver = 'odontologoPrincipal'; mostrar('perfil'); }
+function renderizarPerfil(){
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return mostrar('iniciarSesion');
+  const datos = almacenamiento.obtener(); const usuario = datos.odontologos.find(odo=>odo.id===sesionActiva.id);
+  if(!usuario) return;
+  $('#formularioPerfil [name="nombre"]').value = usuario.nombre || '';
+  $('#formularioPerfil [name="correo"]').value = usuario.correo || '';
+  $('#formularioPerfil [name="telefono"]').value = usuario.telefono || '';
+  const extra = $('#perfilExtra'); extra.innerHTML = ''; $('#btnEliminarPerfil').style.display = 'none';
+  if(sesionActiva.rol==='odontologo'){
+    extra.innerHTML = `<label>Especialidad Médica<input name="especialidad" value="${usuario.especialidad||''}"></label>
+      <div class="fila"><label>Inicio Jornada<input name="inicio" type="time" value="${usuario.inicio||'09:00'}"></label><label>Fin Jornada<input name="fin" type="time" value="${usuario.fin||'17:00'}"></label></div>
+      <label>Tiempo de consulta (min)<select name="duracion"><option ${usuario.duracion==30?'selected':''}>30</option><option ${usuario.duracion==45?'selected':''}>45</option><option ${usuario.duracion==60?'selected':''}>60</option></select></label>`;
+    $('#btnEliminarPerfil').style.display = 'inline-block';
   }
 }
 
-$('#formProfile').onsubmit = e=>{
-  e.preventDefault(); const s = store.get().session; if(!s) return;
-  const f = new FormData(e.target); const newEmail = (f.get('email')||'').trim();
-  store.up(d=>{
-    if(s.role==='dentist'){ const u = d.dentists.find(x=>x.id===s.id); Object.assign(u,{ name: f.get('name'), email: newEmail, phone: f.get('phone'), spec: f.get('spec'), start: f.get('start'), end: f.get('end'), slot: parseInt(f.get('slot')||30) }); }
+$('#formularioPerfil').onsubmit = evento=>{
+  evento.preventDefault(); const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return;
+  const formularioDatos = new FormData(evento.target); const nuevoCorreo = (formularioDatos.get('correo')||'').trim();
+  almacenamiento.actualizar(datos=>{
+    if(sesionActiva.rol==='odontologo'){ const odo = datos.odontologos.find(odo=>odo.id===sesionActiva.id); Object.assign(odo,{ nombre: formularioDatos.get('nombre'), correo: nuevoCorreo, telefono: formularioDatos.get('telefono'), especialidad: formularioDatos.get('especialidad'), inicio: formularioDatos.get('inicio'), fin: formularioDatos.get('fin'), duracion: parseInt(formularioDatos.get('duracion')||30) }); }
   });
-  toast('Perfil actualizado');
+  notificar('Perfil actualizado');
 };
 
-$('#btnDeleteProfile').onclick = ()=>{
-  const s = store.get().session; if(!s) return;
+$('#btnEliminarPerfil').onclick = () => {
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return;
   if(!confirm('¿Eliminar tu perfil médico y liberar tus espacios permanentemente?')) return;
-  store.up(d=>{ d.dentists = d.dentists.filter(x=>x.id!==s.id); d.bookings = d.bookings.filter(b=>b.dentistId!==s.id); d.session = null; });
-  toast('Perfil eliminado'); show('welcomeScreen');
+  almacenamiento.actualizar(datos=>{ datos.odontologos = datos.odontologos.filter(odo=>odo.id!==sesionActiva.id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==sesionActiva.id); datos.sesion = null; });
+  notificar('Perfil eliminado'); mostrar('pantallaBienvenida');
 };
 
-function escapeCsv(v){ if(v===undefined||v===null) return ''; return `"${String(v).replace(/"/g,'""')}"`; }
-function downloadFile(content, filename, type='text/plain'){ const blob = new Blob([content], {type}); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = filename; a.click(); }
-function parseCsvLine(line){
-  const res=[]; let cur=''; let inQ=false;
-  for(let i=0;i<line.length;i++){
-    const ch = line[i];
-    if(ch==='"'){ if(inQ && line[i+1]==='"'){ cur+='"'; i++; } else { inQ = !inQ; } continue; }
-    if(ch===',' && !inQ){ res.push(cur); cur=''; continue; }
-    cur += ch;
+function escaparCsv(valor){ if(valor===undefined||valor===null) return ''; return `"${String(valor).replace(/"/g,'""')}"`; }
+function descargarArchivo(contenido, nombreArchivo, tipo='text/plain'){ const blob = new Blob([contenido], {type: tipo}); const enlace = document.createElement('a'); enlace.href = URL.createObjectURL(blob); enlace.download = nombreArchivo; enlace.click(); }
+function analizarLineaCsv(linea){
+  const resultado=[]; let actual=''; let enComillas=false;
+  for(let i=0;i<linea.length;i++){
+    const caracter = linea[i];
+    if(caracter==='"'){ if(enComillas && linea[i+1]==='"'){ actual+='"'; i++; } else { enComillas = !enComillas; } continue; }
+    if(caracter===',' && !enComillas){ resultado.push(actual); actual=''; continue; }
+    actual += caracter;
   }
-  res.push(cur); return res;
+  resultado.push(actual); return resultado;
 }
 
-/* ===== EXPORTACIÓN DINÁMICA CON EL NOMBRE DEL DENTISTA ACTIVO ===== */
-function exportDentistPatientsCSV_impl(){
-  const s = store.get().session; if(!s || s.role!=='dentist') return;
-  const d = store.get(); 
-  const currentDentist = d.dentists.find(x => x.id === s.id);
-  const dentistName = currentDentist ? currentDentist.name : 'especialista';
+function exportarPacientesOdontologoCSV_impl(){
+  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
+  const datos = almacenamiento.obtener(); 
+  const odontologoActual = datos.odontologos.find(odo => odo.id === sesionActiva.id);
+  const nombreOdontologo = odontologoActual ? odontologoActual.nombre : 'especialista';
 
-  const ids = [...new Set(d.bookings.filter(b=>b.dentistId===s.id).map(b=>b.patientId))];
-  const patients = d.patients.filter(p=>ids.includes(p.id));
-  if(!patients.length){ toast('Sin pacientes para exportar'); return; }
-  const rows = [['Nombre','Correo','Teléfono']];
-  patients.forEach(p=> rows.push([escapeCsv(p.name), escapeCsv(p.email.includes('@interno.com')?'':p.email), escapeCsv(p.phone)]));
+  const ids = [...new Set(datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id).map(cit=>cit.pacienteId))];
+  const campus_pacientes = datos.pacientes.filter(pac=>ids.includes(pac.id));
+  if(!campus_pacientes.length){ notificar('Sin pacientes para exportar'); return; }
+  const filas = [['Nombre','Correo','Teléfono']];
+  campus_pacientes.forEach(pac=> filas.push([escaparCsv(pac.nombre), escaparCsv(pac.correo.includes('@interno.com')?'':pac.correo), escaparCsv(pac.telefono)]));
   
-  // Modificación del título solicitada:
-  downloadFile(rows.map(r=>r.join(',')).join('\n'), `pacientes del dr ${dentistName}.csv`, 'text/csv');
+  descargarArchivo(filas.map(fil=>fil.join(',')).join('\n'), `pacientes del dr ${nombreOdontologo}.csv`, 'text/csv');
 }
 
-function importDentistCSVFile_impl(evt){
-  const file = evt.target.files[0]; if(!file) return;
-  const reader = new FileReader();
-  reader.onload = e => {
-    const lines = e.target.result.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
-    if(lines.length<=1){ toast('Falta información en el archivo'); return; }
-    const header = parseCsvLine(lines.shift()).map(h=>h.replace(/"/g,'').trim().toLowerCase());
-    const idxName = header.findIndex(h=>h.includes('nombre')), idxEmail = header.findIndex(h=>h.includes('correo')||h.includes('email')), idxPhone = header.findIndex(h=>h.includes('tel')||h.includes('telefono'));
-    if(idxName<0 || idxEmail<0){ toast('Columnas requeridas: Nombre, Correo'); return; }
-    let added=0, skipped=0;
-    lines.forEach(line=>{
-      const cols = parseCsvLine(line); const name = (cols[idxName]||'').replace(/(^"|"$)/g,'').trim(); const email = (cols[idxEmail]||'').replace(/(^"|"$)/g,'').trim(); const phone = idxPhone>=0 ? (cols[idxPhone]||'').replace(/(^"|"$)/g,'').trim() : '';
-      if(!email || emailExists(email)){ skipped++; return; }
-      store.up(x=> x.patients.push({ id: uid(), role:'patient', name, email, phone, pass: '' })); added++;
+function importingArchivoCSVOdontologo_impl(evento){
+  const archivo = evento.target.files[0]; if(!archivo) return;
+  const lector = new FileReader();
+  lector.onload = e => {
+    const lineas = e.target.result.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
+    if(lineas.length<=1){ notificar('Falta información en el archivo'); return; }
+    const cabecera = analizarLineaCsv(lineas.shift()).map(cab=>cab.replace(/"/g,'').trim().toLowerCase());
+    const indiceNombre = cabecera.findIndex(cab=>cab.includes('nombre')), indiceCorreo = cabecera.findIndex(cab=>cab.includes('correo')||cab.includes('email')), indiceTelefono = cabecera.findIndex(cab=>cab.includes('tel')||cab.includes('telefono'));
+    if(indiceNombre<0 || indiceCorreo<0){ notificar('Columnas requeridas: Nombre, Correo'); return; }
+    let agregados=0, omitidos=0;
+    lineas.forEach(linea=>{
+      const columnas = analizarLineaCsv(linea); const nombre = (columnas[indiceNombre]||'').replace(/(^"|"$)/g,'').trim(); const correo = (columnas[indiceCorreo]||'').replace(/(^"|"$)/g,'').trim(); const telefono = indiceTelefono>=0 ? (columnas[indiceTelefono]||'').replace(/(^"|"$)/g,'').trim() : '';
+      if(!correo || existeEmail(correo)){ omitidos++; return; }
+      almacenamiento.actualizar(act=> act.pacientes.push({ id: idUnico(), rol:'paciente', nombre, correo, telefono, contrasena: '' })); agregados++;
     });
-    toast(`Éxito: ${added} importados. Omitidos: ${skipped}`); $('#inputImportDent').value = '';
+    notificar(`Éxito: ${agregados} importados. Omitidos: ${omitidos}`); $('#inputImportarOdontologo').value = '';
   };
-  reader.readAsText(file);
+  lector.readAsText(archivo);
 }
 
-function prepareDentistCSV(){
-  $('#btnExportDent').onclick = exportDentistPatientsCSV_impl;
-  $('#inputImportDent').onchange = importDentistCSVFile_impl;
+function prepararCsvOdontologo(){
+  $('#btnExportarOdontologo').onclick = exportarPacientesOdontologoCSV_impl;
+  $('#inputImportarOdontologo').onchange = importingArchivoCSVOdontologo_impl;
 }
-function openWhats(phone){ if(!phone) { toast('No hay teléfono asignado'); return; } toast(`Enlazando API WhatsApp a ${phone}...`); }
+function abrirWhatsapp(telefono){ if(!telefono) { notificar('No hay teléfono asignado'); return; } notificar(`Enlazando API WhatsApp a ${telefono}...`); }
 
-function logout(){ 
-  store.up(d=>d.session=null); 
+function cerrarSesion(){ 
+  almacenamiento.actualizar(datos=>datos.sesion=null); 
   
-  if ($('#login_email')) $('#login_email').value = '';
-  if ($('#login_pass')) $('#login_pass').value = '';
+  if ($('#login_correo')) $('#login_correo').value = '';
+  if ($('#login_contrasena')) $('#login_contrasena').value = '';
   
-  $$('.password-wrapper input').forEach(input => input.type = 'password');
-  $$('.password-toggle-btn').forEach(btn => btn.innerHTML = '<i data-lucide="eye"></i>');
+  $$('.envoltura-contrasena input').forEach(input => input.type = 'password');
+  $$('.boton-alternar-contrasena').forEach(btn => btn.innerHTML = '<i data-lucide="eye"></i>');
   
-  show('welcomeScreen'); 
+  mostrar('pantallaBienvenida'); 
 }
 
-(function init(){
-  selectLoginRole('dentist');
-  show('welcomeScreen');
+(function inicializar(){
+  seleccionarRolInicio('odontologo');
+  mostrar('pantallaBienvenida');
 
-  $('#btnExportAll') && ($('#btnExportAll').onclick = ()=>{
-    const d = store.get(); if(!d.patients.length) return toast('Sin registros');
+  $('#btnExportarTodo') && ($('#btnExportarTodo').onclick = ()=>{
+    const datos = almacenamiento.obtener(); if(!datos.pacientes.length) return notificar('Sin registros');
     
-    const rows = [['Nombre','Correo','Teléfono','Especialista']];
+    const filas = [['Nombre','Correo','Teléfono','Especialista']];
     
-    d.patients.forEach(p=> {
-      const lastBooking = d.bookings
-        .filter(b => b.patientId === p.id && b.status !== 'cancelled')
-        .sort((a,b) => b.createdAt - a.createdAt)[0];
+    datos.pacientes.forEach(pac=> {
+      const ultimaCita = datos.citas
+        .filter(cit => cit.pacienteId === pac.id && cit.estado !== 'cancelado')
+        .sort((a,b) => b.creadoEn - a.creadoEn)[0];
       
-      let specName = 'Sin consultas asignadas';
-      if(lastBooking) {
-        const dent = d.dentists.find(x => x.id === lastBooking.dentistId);
-        if(dent) specName = `Dr(a). ${dent.name}`;
+      let nombreEsp = 'Sin consultas asignadas';
+      if(ultimaCita) {
+        const odo = datos.odontologos.find(odo => odo.id === ultimaCita.odontologoId);
+        if(odo) nombreEsp = `Dr(a). ${odo.nombre}`;
       }
       
-      rows.push([
-        escapeCsv(p.name), 
-        escapeCsv(p.email.includes('@interno.com') ? '' : p.email), 
-        escapeCsv(p.phone),
-        escapeCsv(specName)
+      filas.push([
+        escaparCsv(pac.nombre), 
+        escaparCsv(pac.correo.includes('@interno.com') ? '' : pac.correo), 
+        escaparCsv(pac.telefono),
+        escaparCsv(nombreEsp)
       ]);
     });
     
-    downloadFile(rows.map(r=>r.join(',')).join('\n'), 'todos-pacientes-global.csv', 'text/csv');
+    descargarArchivo(filas.map(fil=>fil.join(',')).join('\n'), 'todos-pacientes-global.csv', 'text/csv');
   });
 })();
 
-window.show = show;
-window.logout = logout;
-window.selectLoginRole = selectLoginRole;
-window.adminDeleteDentist_impl = adminDeleteDentist_impl;
-window.adminDeletePatient_impl = adminDeletePatient_impl;
-window.dentistDeletePatient = dentistDeletePatient;
-window.updateBookingStatus = updateBookingStatus;
-window.togglePasswordVisibility = togglePasswordVisibility;
+window.mostrar = mostrar;
+window.cerrarSesion = cerrarSesion;
+window.seleccionarRolInicio = seleccionarRolInicio;
+window.adminEliminarOdontologo_impl = adminEliminarOdontologo_impl;
+window.adminEliminarPaciente_impl = adminEliminarPaciente_impl;
+window.actualizarEstadoCita = actualizarEstadoCita;
+window.odontologoEliminarPaciente = odontologoEliminarPaciente;
+window.abrirPerfil = abrirPerfil;
+window.alternarVisibilidadContrasena = alternarVisibilidadContrasena;
+window.renderizarAgenda = renderizarAgenda;
+window.filtrarPacientesExistentes = filtrarPacientesExistentes;
+window.seleccionarPacienteExistente = seleccionarPacienteExistente;
 </script>
 </body>
 </html>
