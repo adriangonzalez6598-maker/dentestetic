@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Dentestetic</title>
+<title>Dentestetic - Sistema de Gestión</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,7 +22,12 @@
 }
 
 /* RESET GENERAL */
-*{ box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+*{ 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; 
+}
 
 body {
   color: var(--texto);
@@ -275,7 +280,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 .etiqueta {
   padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; text-transform: uppercase; display: inline-block;
 }
-.etiqueta.pendiente { background: #e0f2fe; color: #0369a1; } /* Atendiendo */
+.etiqueta.pendiente { background: #e0f2fe; color: #0369a1; } 
 .etiqueta.confirmado { background: #d1fae5; color: #065f46; }
 .etiqueta.cancelado { background: #fee2e2; color: #991b1b; }
 .etiqueta.completada { background: #f3e8ff; color: #6b21a8; }
@@ -328,7 +333,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       <h2>Bienvenido a Dentestetic</h2>
       <p class="atenuado">Plataforma de gestión de citas para Dentistas.</p>
       <div style="margin-top:24px">
-        <button class="btn" onclick="mostrar('acceso')">Ingresar al Sistema <i data-lucide="arrow-right"></i></button>
+        <button class="btn" onclick="cambiarVista('acceso')">Ingresar al Sistema <i data-lucide="arrow-right"></i></button>
       </div>
     </div>
   </section>
@@ -338,10 +343,10 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       <h2>Acceso Profesional</h2>
       <p class="atenuado">Inicia sesión con tu cuenta o registra tu consultorio</p>
       <div style="margin-top:24px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-        <button class="btn" onclick="mostrar('iniciarSesion')"><i data-lucide="log-in"></i> Iniciar Sesión</button>
-        <button class="btn btn-fantasma" onclick="mostrar('registro')"><i data-lucide="user-plus"></i> Registrar Dentista</button>
+        <button class="btn" onclick="cambiarVista('iniciarSesion')"><i data-lucide="log-in"></i> Iniciar Sesión</button>
+        <button class="btn btn-fantasma" onclick="cambiarVista('registro')"><i data-lucide="user-plus"></i> Registrar Dentista</button>
       </div>
-      <div style="margin-top:16px"><button class="btn fantasma" onclick="mostrar('pantallaBienvenida')">Volver</button></div>
+      <div style="margin-top:16px"><button class="btn fantasma" onclick="cambiarVista('pantallaBienvenida')">Volver</button></div>
     </div>
   </section>
 
@@ -373,7 +378,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       </div>
 
       <div style="margin-top:24px; border-top: 1px solid #e2e8f0; padding-top: 16px;">
-        <button class="btn fantasma" onclick="mostrar('acceso')">Volver</button>
+        <button class="btn fantasma" onclick="cambiarVista('acceso')">Volver</button>
       </div>
     </div>
   </section>
@@ -405,7 +410,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
         </div>
         <div style="margin-top:24px;display:flex;gap:12px">
           <button class="btn" id="btnIngresar">Ingresar Seguro <i data-lucide="shield-check"></i></button>
-          <button class="btn fantasma" onclick="mostrar('acceso')">Volver</button>
+          <button class="btn fantasma" onclick="cambiarVista('acceso')">Volver</button>
         </div>
       </div>
     </div>
@@ -416,11 +421,11 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       <h3>Panel de Control Odontológico</h3>
       <p class="atenuado">Bienvenido de vuelta. Desde aquí puedes coordinar turnos manuales e historiales.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-        <button class="btn" onclick="mostrar('agenda')"><i data-lucide="calendar-days"></i> Ver Agenda y Citas</button>
-        <button class="btn" onclick="mostrar('agendarPorOdontologo')"><i data-lucide="calendar-plus"></i> Agendar Nueva Cita</button>
-        <button class="btn fantasma" onclick="mostrar('pacientesOdontologo')"><i data-lucide="users"></i> Expedientes / Clientes</button>
+        <button class="btn" onclick="cambiarVista('agenda')"><i data-lucide="calendar-days"></i> Ver Agenda y Citas</button>
+        <button class="btn" onclick="cambiarVista('agendarPorOdontologo')"><i data-lucide="calendar-plus"></i> Agendar Nueva Cita</button>
+        <button class="btn fantasma" onclick="cambiarVista('pacientesOdontologo')"><i data-lucide="users"></i> Expedientes / Clientes</button>
         <button class="btn fantasma" onclick="abrirPerfil('odontologo')"><i data-lucide="user"></i> Mi Perfil</button>
-        <button class="btn fantasma" onclick="mostrar('csvOdontologo')"><i data-lucide="file-spreadsheet"></i> Respaldos CSV</button>
+        <button class="btn fantasma" onclick="cambiarVista('csvOdontologo')"><i data-lucide="file-spreadsheet"></i> Respaldos CSV</button>
         <button class="btn fantasma" onclick="cerrarSesion()"><i data-lucide="log-out"></i> Salir</button>
       </div>
     </div>
@@ -452,7 +457,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       
       <div style="margin-top:24px">
         <button class="btn" id="btnConfirmarAgendarPorOdontologo">Agendar Turno Seguro</button>
-        <button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button>
+        <button class="btn fantasma" onclick="cambiarVista('odontologoPrincipal')">Volver</button>
       </div>
     </div>
   </section>
@@ -465,7 +470,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
       </div>
       <div style="height:16px"></div>
       <div id="espaciosAgenda"></div>
-      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="cambiarVista('odontologoPrincipal')">Volver</button></div>
     </div>
   </section>
 
@@ -473,7 +478,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
     <div class="tarjeta">
       <h3>Directorio Clínico de Pacientes</h3>
       <div id="listaPacientesOdontologo" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('odontologoPrincipal')">Volver</button></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="cambiarVista('odontologoPrincipal')">Volver</button></div>
     </div>
   </section>
 
@@ -487,7 +492,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
            <label style="margin-top:0; margin-bottom:6px">Cargar archivo CSV desde tu ordenador</label>
            <input id="inputImportarOdontologo" type="file" accept=".csv" style="width: auto; max-width:100%;">
         </div>
-        <button class="btn fantasma" onclick="mostrar('odontologoPrincipal')" style="width:fit-content">Volver</button>
+        <button class="btn fantasma" onclick="cambiarVista('odontologoPrincipal')" style="width:fit-content">Volver</button>
       </div>
     </div>
   </section>
@@ -496,8 +501,8 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
     <div class="tarjeta">
       <h3>Consola del Administrador</h3>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px;">
-        <button class="btn" onclick="mostrar('adminOdontologos')"><i data-lucide="shield"></i> Control Dentistas</button>
-        <button class="btn" onclick="mostrar('adminPacientes')"><i data-lucide="users"></i> Control Pacientes Global</button>
+        <button class="btn" onclick="cambiarVista('adminOdontologos')"><i data-lucide="shield"></i> Control Dentistas</button>
+        <button class="btn" onclick="cambiarVista('adminPacientes')"><i data-lucide="users"></i> Control Pacientes Global</button>
         <button class="btn" id="btnExportarTodo"><i data-lucide="download-cloud"></i> Exportar Base Global (Excel/CSV)</button>
         <button class="btn fantasma" onclick="cerrarSesion()"><i data-lucide="log-out"></i> Salir</button>
       </div>
@@ -508,7 +513,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
     <div class="tarjeta">
       <h3>Médicos Activos</h3>
       <div id="listaTodosOdontologos" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('adminPrincipal')">Volver</button></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="cambiarVista('adminPrincipal')">Volver</button></div>
     </div>
   </section>
 
@@ -516,7 +521,7 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
     <div class="tarjeta">
       <h3>Pacientes Registrados</h3>
       <div id="listaTodosPacientes" style="margin-top:14px"></div>
-      <div style="margin-top:20px"><button class="btn fantasma" onclick="mostrar('adminPrincipal')">Volver</button></div>
+      <div style="margin-top:20px"><button class="btn fantasma" onclick="cambiarVista('adminPrincipal')">Volver</button></div>
     </div>
   </section>
 
@@ -524,13 +529,13 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
     <div class="tarjeta">
       <h3>Configuración del Perfil Odontológico</h3>
       <form id="formularioPerfil">
-        <label>Nombre Completo<input name="nombre"></label>
-        <label>Correo Electrónico<input name="correo" type="email"></label>
-        <label>Teléfono Celular<input name="telefono"></label>
+        <label>Nombre Completo<input name="nombre" id="perf_nombre"></label>
+        <label>Correo Electrónico<input name="correo" type="email" id="perf_correo"></label>
+        <label>Teléfono Celular<input name="telefono" id="perf_telefono"></label>
         <div id="perfilExtra"></div>
         <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap">
           <button class="btn" type="submit"><i data-lucide="save"></i> Guardar Cambios</button>
-          <button class="btn fantasma" type="button" onclick="mostrar(destinoVolver||'pantallaBienvenida')">Volver</button>
+          <button class="btn fantasma" type="button" onclick="cambiarVista(destinoVolver)">Volver</button>
           <button class="btn advertencia" id="btnEliminarPerfil" style="display:none" type="button"><i data-lucide="trash-2"></i> Eliminar Cuenta</button>
         </div>
       </form>
@@ -541,93 +546,140 @@ th { background: #f8fafc; font-weight: 600; color: #475569; }
 <div id="notificacion" class="emergente"></div>
 
 <script>
-const $ = selector => document.querySelector(selector);
-const $$ = selector => Array.from(document.querySelectorAll(selector));
-const idUnico = () => Math.random().toString(36).slice(2,10);
-
-const ADMIN_PREDEFINIDO = { id:'admin-adair', rol:'admin', nombre:'Adair Gonzalez', correo:'adair.glezm@gmail.com', contrasena:'Nancito7' };
+// --- VARIABLES GLOBALES DEL SISTEMA ---
+const ADMIN_PREDEFINIDO = { 
+  id: 'admin-adair', 
+  rol: 'admin', 
+  nombre: 'Adair Gonzalez', 
+  correo: 'adair.glezm@gmail.com', 
+  contrasena: 'Nancito7' 
+};
 
 let rolInicioSeleccionado = 'odontologo';
 let destinoVolver = 'pantallaBienvenida';
 
-const almacenamiento = {
-  obtener(){
-    const bruto = localStorage.getItem('dental-app-light-es');
-    if(!bruto) return { pacientes:[], odontologos:[], administradores:[ADMIN_PREDEFINIDO], citas:[], sesion:null };
-    try{
-      const datos = JSON.parse(bruto);
-      datos.administradores = datos.administradores || [ADMIN_PREDEFINIDO];
-      if(!datos.administradores.find(adm=>adm.correo.toLowerCase()===ADMIN_PREDEFINIDO.correo.toLowerCase())) datos.administradores.push(ADMIN_PREDEFINIDO);
-      return datos;
-    }catch{
-      return { pacientes:[], odontologos:[], administradores:[ADMIN_PREDEFINIDO], citas:[], sesion:null };
+// --- LOGICA DE ALMACENAMIENTO (LOCALSTORAGE) ---
+function obtenerDatosSaves() {
+  let bruto = localStorage.getItem('dental-app-light-es');
+  if (!bruto) {
+    return { pacientes: [], odontologos: [], administradores: [ADMIN_PREDEFINIDO], citas: [], sesion: null };
+  }
+  try {
+    let datos = JSON.parse(bruto);
+    if (!datos.administradores) {
+      datos.administradores = [ADMIN_PREDEFINIDO];
     }
-  },
-  guardar(datos){ localStorage.setItem('dental-app-light-es', JSON.stringify(datos)); },
-  actualizar(funcion){ const datos=this.obtener(); funcion(datos); this.guardar(datos); }
-};
-
-function notificar(mensaje){ 
-  const elementoNotificacion = $('#notificacion'); 
-  elementoNotificacion.textContent = mensaje; 
-  elementoNotificacion.style.display='block'; 
-  setTimeout(()=>elementoNotificacion.style.display='none', 2500); 
+    // Verificamos que el admin por defecto siempre exista
+    let existeAdmin = false;
+    for (let i = 0; i < datos.administradores.length; i++) {
+      if (datos.administradores[i].correo.toLowerCase() === ADMIN_PREDEFINIDO.correo.toLowerCase()) {
+        existeAdmin = true;
+        break;
+      }
+    }
+    if (!existeAdmin) {
+      datos.administradores.push(ADMIN_PREDEFINIDO);
+    }
+    return datos;
+  } catch (error) {
+    return { pacientes: [], odontologos: [], administradores: [ADMIN_PREDEFINIDO], citas: [], sesion: null };
+  }
 }
 
-function mostrar(id){
-  $$('section').forEach(sec=>sec.classList.remove('activo'));
-  const elemento = document.getElementById(id);
-  if(elemento) elemento.classList.add('activo');
+function guardarDatos(datos) {
+  localStorage.setItem('dental-app-light-es', JSON.stringify(datos));
+}
+
+// Generador de ID unico basico para la escuela
+function generarIdUnico() {
+  return Math.random().toString(36).slice(2, 10);
+}
+
+// Ventana flotante de avisos al usuario
+function notificar(mensaje) { 
+  let elementoNotificacion = document.getElementById('notificacion'); 
+  elementoNotificacion.textContent = mensaje; 
+  elementoNotificacion.style.display = 'block'; 
+  setTimeout(function() {
+    elementoNotificacion.style.display = 'none';
+  }, 2500); 
+}
+
+// --- CONTROLADOR DE VISTAS (SPA) ---
+function cambiarVista(idVista) {
+  let secciones = document.querySelectorAll('section');
+  for (let i = 0; i < secciones.length; i++) {
+    secciones[i].classList.remove('activo');
+  }
+  
+  let vistaObjetivo = document.getElementById(idVista);
+  if (vistaObjetivo) {
+    vistaObjetivo.classList.add('activo');
+  }
+  
   renderizarNavegacionSuperior();
 
-  if(id==='iniciarSesion') seleccionarRolInicio(rolInicioSeleccionado);
-  if(id==='agendarPorOdontologo') prepararAgendarPorOdontologo();
-  if(id==='agenda') renderizarAgenda();
-  if(id==='pacientesOdontologo') renderizarPacientesOdontologo();
-  if(id==='csvOdontologo') prepararCsvOdontologo();
-  if(id==='adminOdontologos') renderizarTodosOdontologos();
-  if(id==='adminPacientes') renderizarTodosPacientes();
-  if(id==='perfil') renderizarPerfil();
+  // Ejecución de carga según la pestaña donde esté el usuario
+  if (idVista === 'iniciarSesion') seleccionarRolInicio(rolInicioSeleccionado);
+  if (idVista === 'agendarPorOdontologo') prepararAgendarPorOdontologo();
+  if (idVista === 'agenda') renderizarAgenda();
+  if (idVista === 'pacientesOdontologo') renderizarPacientesOdontologo();
+  if (idVista === 'csvOdontologo') prepararCsvOdontologo();
+  if (idVista === 'adminOdontologos') renderizarTodosOdontologos();
+  if (idVista === 'adminPacientes') renderizarTodosPacientes();
+  if (idVista === 'perfil') renderizarPerfil();
   
   lucide.createIcons();
 }
 
-function seleccionarRolInicio(rol){
+function seleccionarRolInicio(rol) {
   rolInicioSeleccionado = rol;
-  $$('#iniciarSesion .boton-tarjeta-rol').forEach(btn => btn.classList.remove('activo'));
-  if(rol === 'odontologo') $('#lblLogOdontologo').classList.add('activo');
-  if(rol === 'admin') $('#lblLogAdmin').classList.add('activo');
+  let botonesRol = document.querySelectorAll('#iniciarSesion .boton-tarjeta-rol');
+  for (let i = 0; i < botonesRol.length; i++) {
+    botonesRol[i].classList.remove('activo');
+  }
+  
+  if (rol === 'odontologo') {
+    document.getElementById('lblLogOdontologo').classList.add('activo');
+  }
+  if (rol === 'admin') {
+    document.getElementById('lblLogAdmin').classList.add('activo');
+  }
 }
 
-function renderizarNavegacionSuperior(){
-  const nav = $('#navegacionSuperior'); nav.innerHTML='';
-  const sesionActiva = almacenamiento.obtener().sesion;
-  if(!nav) return;
-  if(!sesionActiva){
-    nav.appendChild(crearElemento('Inicio', 'home', ()=>mostrar('pantallaBienvenida')));
-    nav.appendChild(crearElemento('Acceso', 'log-in', ()=>mostrar('acceso')));
-  } else if(sesionActiva.rol==='odontologo'){
-    nav.appendChild(crearElemento('Panel', 'layout-dashboard', ()=>mostrar('odontologoPrincipal')));
-    nav.appendChild(crearElemento('Agendar', 'calendar-plus', ()=>mostrar('agendarPorOdontologo')));
-    nav.appendChild(crearElemento('Agenda', 'calendar-days', ()=>mostrar('agenda')));
-    nav.appendChild(crearElemento('Perfil', 'user', ()=>{ destinoVolver='odontologoPrincipal'; mostrar('perfil'); }));
-    nav.appendChild(crearElemento('Salir', 'log-out', ()=>cerrarSesion()));
-  } else if(sesionActiva.rol==='admin'){
-    nav.appendChild(crearElemento('Admin', 'shield', ()=>mostrar('adminPrincipal')));
-    nav.appendChild(crearElemento('Salir', 'log-out', ()=>cerrarSesion()));
+function renderizarNavegacionSuperior() {
+  let nav = document.getElementById('navegacionSuperior'); 
+  if (!nav) return;
+  nav.innerHTML = '';
+  
+  let datosGlobales = obtenerDatosSaves();
+  let sesionActiva = datosGlobales.sesion;
+  
+  if (!sesionActiva) {
+    nav.appendChild(crearBotonNav('Inicio', 'home', function() { cambiarVista('pantallaBienvenida'); }));
+    nav.appendChild(crearBotonNav('Acceso', 'log-in', function() { cambiarVista('acceso'); }));
+  } else if (sesionActiva.rol === 'odontologo') {
+    nav.appendChild(crearBotonNav('Panel', 'layout-dashboard', function() { cambiarVista('odontologoPrincipal'); }));
+    nav.appendChild(crearBotonNav('Agendar', 'calendar-plus', function() { cambiarVista('agendarPorOdontologo'); }));
+    nav.appendChild(crearBotonNav('Agenda', 'calendar-days', function() { cambiarVista('agenda'); }));
+    nav.appendChild(crearBotonNav('Perfil', 'user', function() { destinoVolver = 'odontologoPrincipal'; cambiarVista('perfil'); }));
+    nav.appendChild(crearBotonNav('Salir', 'log-out', function() { cerrarSesion(); }));
+  } else if (sesionActiva.rol === 'admin') {
+    nav.appendChild(crearBotonNav('Admin', 'shield', function() { cambiarVista('adminPrincipal'); }));
+    nav.appendChild(crearBotonNav('Salir', 'log-out', function() { cerrarSesion(); }));
   }
   lucide.createIcons();
 }
 
-function crearElemento(etiqueta, icono, funcion){ 
-  const btn=document.createElement('button'); 
-  btn.innerHTML=`<i data-lucide="${icono}" style="width:16px;height:16px"></i> <span>${etiqueta}</span>`; 
-  btn.onclick=funcion; 
+function crearBotonNav(etiqueta, icono, accionClick) { 
+  let btn = document.createElement('button'); 
+  btn.innerHTML = `<i data-lucide="${icono}" style="width:16px;height:16px"></i> <span>${etiqueta}</span>`; 
+  btn.onclick = accionClick; 
   return btn; 
 }
 
 function alternarVisibilidadContrasena(idInput, elementoBoton) {
-  const input = document.getElementById(idInput);
+  let input = document.getElementById(idInput);
   if (!input) return;
   
   if (input.type === 'password') {
@@ -640,125 +692,230 @@ function alternarVisibilidadContrasena(idInput, elementoBoton) {
   lucide.createIcons();
 }
 
-function existeEmail(correo){
-  const datos = almacenamiento.obtener();
-  const correoLimpio = (correo||'').trim().toLowerCase();
-  if(!correoLimpio) return false;
-  return datos.pacientes.some(pac=>pac.correo.toLowerCase()===correoLimpio) || datos.odontologos.some(odo=>odo.correo.toLowerCase()===correoLimpio) || (datos.administradores && datos.administradores.some(adm=>adm.correo.toLowerCase()===correoLimpio));
+function verificarSiExisteEmail(correo) {
+  let datos = obtenerDatosSaves();
+  let correoLimpio = (correo || '').trim().toLowerCase();
+  if (!correoLimpio) return false;
+  
+  // Validaciones tradicionales con bucles for simples
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    if (datos.pacientes[i].correo.toLowerCase() === correoLimpio) return true;
+  }
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].correo.toLowerCase() === correoLimpio) return true;
+  }
+  for (let i = 0; i < datos.administradores.length; i++) {
+    if (datos.administradores[i].correo.toLowerCase() === correoLimpio) return true;
+  }
+  return false;
 }
 
-$('#btnRegOdontologo').onclick = ()=>{
-  const nombre = $('#reg_o_nombre').value.trim(); const correo = $('#reg_o_correo').value.trim();
-  const telephone = $('#reg_o_telefono').value.trim(); const especialidad = $('#reg_o_especialidad').value.trim();
-  const inicio = $('#reg_o_inicio').value || '09:00'; const fin = $('#reg_o_fin').value || '17:00';
-  const duracion = parseInt($('#reg_o_duracion').value || '30',10); const contrasena = $('#reg_o_contrasena').value;
-  if(!nombre||!correo||!especialidad||!contrasena){ notificar('Completa los campos obligatorios'); return; }
-  if(existeEmail(correo)){ notificar('El correo ya existe registrado'); return; }
-  almacenamiento.actualizar(datos=>datos.odontologos.push({ id: idUnico(), rol:'odontologo', nombre, correo, telefono: telephone, especialidad, inicio, fin, duracion, contrasena }));
+// --- ACCIONES DE EVENTOS / BOTONES ---
+function registrarOdontologo() {
+  let nombre = document.getElementById('reg_o_nombre').value.trim(); 
+  let correo = document.getElementById('reg_o_correo').value.trim();
+  let telefono = document.getElementById('reg_o_telefono').value.trim(); 
+  let especialidad = document.getElementById('reg_o_especialidad').value.trim();
+  let inicio = document.getElementById('reg_o_inicio').value || '09:00'; 
+  let fin = document.getElementById('reg_o_fin').value || '17:00';
+  let duracion = parseInt(document.getElementById('reg_o_duracion').value || '30', 10); 
+  let contrasena = document.getElementById('reg_o_contrasena').value;
+  
+  if (!nombre || !correo || !especialidad || !contrasena) { 
+    notificar('Completa los campos obligatorios'); 
+    return; 
+  }
+  if (verificarSiExisteEmail(correo)) { 
+    notificar('El correo ya existe registrado'); 
+    return; 
+  }
+  
+  let datos = obtenerDatosSaves();
+  datos.odontologos.push({ 
+    id: generarIdUnico(), 
+    rol: 'odontologo', 
+    nombre: nombre, 
+    correo: correo, 
+    telefono: telefono, 
+    especialidad: especialidad, 
+    inicio: inicio, 
+    fin: fin, 
+    duracion: duracion, 
+    contrasena: contrasena 
+  });
+  guardarDatos(datos);
+  
   notificar('¡Especialista registrado exitosamente!'); 
   
-  $('#reg_o_nombre').value = '';
-  $('#reg_o_correo').value = '';
-  $('#reg_o_telefono').value = '';
-  $('#reg_o_especialidad').value = '';
-  $('#reg_o_inicio').value = '09:00';
-  $('#reg_o_fin').value = '17:00';
-  $('#reg_o_duracion').value = '30';
-  $('#reg_o_contrasena').value = '';
+  // Limpiar formulario
+  document.getElementById('reg_o_nombre').value = '';
+  document.getElementById('reg_o_correo').value = '';
+  document.getElementById('reg_o_telefono').value = '';
+  document.getElementById('reg_o_especialidad').value = '';
+  document.getElementById('reg_o_inicio').value = '09:00';
+  document.getElementById('reg_o_fin').value = '17:00';
+  document.getElementById('reg_o_duracion').value = '30';
+  document.getElementById('reg_o_contrasena').value = '';
   
-  seleccionarRolInicio('odontologo'); mostrar('iniciarSesion');
-};
+  seleccionarRolInicio('odontologo'); 
+  cambiarVista('iniciarSesion');
+}
+document.getElementById('btnRegOdontologo').onclick = registrarOdontologo;
 
-$('#btnIngresar').onclick = ()=>{
-  const rol = rolInicioSeleccionado;
-  const correo = ($('#login_correo').value||'').trim().toLowerCase(); const contrasena = $('#login_contrasena').value;
-  const datos = almacenamiento.obtener();
+function loginUsuario() {
+  let rol = rolInicioSeleccionado;
+  let correo = (document.getElementById('login_correo').value || '').trim().toLowerCase(); 
+  let contrasena = document.getElementById('login_contrasena').value;
+  let datos = obtenerDatosSaves();
   
-  if(rol==='odontologo'){
-    const usuario = datos.odontologos.find(odo=>odo.correo.toLowerCase()===correo && odo.contrasena===contrasena);
-    if(!usuario){ notificar('Credenciales inválidas'); return; }
-    almacenamiento.actualizar(act=>act.sesion = { id: usuario.id, rol: 'odontologo' });
-    prepararDespuesInicio(); mostrar('odontologoPrincipal'); return;
+  if (rol === 'odontologo') {
+    let odontologoEncontrado = null;
+    for (let i = 0; i < datos.odontologos.length; i++) {
+      if (datos.odontologos[i].correo.toLowerCase() === correo && datos.odontologos[i].contrasena === contrasena) {
+        odontologoEncontrado = datos.odontologos[i];
+        break;
+      }
+    }
+    if (!odontologoEncontrado) { 
+      notificar('Credenciales inválidas'); 
+      return; 
+    }
+    datos.sesion = { id: odontologoEncontrado.id, rol: 'odontologo' };
+    guardarDatos(datos);
+    prepararFechasPorDefecto(); 
+    cambiarVista('odontologoPrincipal'); 
+    return;
   }
-  if(rol==='admin'){
-    const usuario = datos.administradores && datos.administradores.find(adm=>adm.correo.toLowerCase()===correo && adm.contrasena===contrasena);
-    if(!usuario){ notificar('Credenciales inválidas'); return; }
-    almacenamiento.actualizar(act=>act.sesion = { id: usuario.id||'admin', rol:'admin' });
-    prepararDespuesInicio(); mostrar('adminPrincipal'); return;
+  
+  if (rol === 'admin') {
+    let adminEncontrado = null;
+    for (let i = 0; i < datos.administradores.length; i++) {
+      if (datos.administradores[i].correo.toLowerCase() === correo && datos.administradores[i].contrasena === contrasena) {
+        adminEncontrado = datos.administradores[i];
+        break;
+      }
+    }
+    if (!adminEncontrado) { 
+      notificar('Credenciales inválidas'); 
+      return; 
+    }
+    datos.sesion = { id: adminEncontrado.id || 'admin', rol: 'admin' };
+    guardarDatos(datos);
+    prepararFechasPorDefecto(); 
+    cambiarVista('adminPrincipal'); 
+    return;
   }
-};
+}
+document.getElementById('btnIngresar').onclick = loginUsuario;
 
-function obtenerFechaLocalMexicoYMD() {
-  const d = new Date();
-  const anio = d.getFullYear();
-  const mes = String(d.getMonth() + 1).padStart(2, '0');
-  const dia = String(d.getDate()).padStart(2, '0');
-  return `${anio}-${mes}-${dia}`;
+function obtenerFechaFormatoYMD() {
+  let objetoFecha = new Date();
+  let anio = objetoFecha.getFullYear();
+  let mes = String(objetoFecha.getMonth() + 1).padStart(2, '0');
+  let dia = String(objetoFecha.getDate()).padStart(2, '0');
+  return anio + '-' + mes + '-' + dia;
 }
 
-function prepararDespuesInicio(){
-  const hoy = obtenerFechaLocalMexicoYMD();
-  $('#agendar_fecha').value = hoy;
-  $('#agendar_fecha').setAttribute('min', hoy);
-  $('#agenda_fecha').value = hoy;
+function prepararFechasPorDefecto() {
+  let hoy = obtenerFechaFormatoYMD();
+  document.getElementById('agendar_fecha').value = hoy;
+  document.getElementById('agendar_fecha').setAttribute('min', hoy);
+  document.getElementById('agenda_fecha').value = hoy;
 }
 
-function prepararAgendarPorOdontologo(){
-  const hoy = obtenerFechaLocalMexicoYMD();
-  $('#agendar_fecha').setAttribute('min', hoy);
-  if(!$('#agendar_fecha').value) {
-    $('#agendar_fecha').value = hoy;
+function prepararAgendarPorOdontologo() {
+  let hoy = obtenerFechaFormatoYMD();
+  document.getElementById('agendar_fecha').setAttribute('min', hoy);
+  if (!document.getElementById('agendar_fecha').value) {
+    document.getElementById('agendar_fecha').value = hoy;
   }
-  $('#agendar_p_id').value = '';
-  $('#agendar_p_nombre').value = '';
-  $('#agendar_p_correo').value = '';
-  $('#agendar_p_telefono').value = '';
-  $('#agendar_motivo').value = '';
-  if($('#sugerencias_pacientes')) $('#sugerencias_pacientes').style.display = 'none';
+  document.getElementById('agendar_p_id').value = '';
+  document.getElementById('agendar_p_nombre').value = '';
+  document.getElementById('agendar_p_correo').value = '';
+  document.getElementById('agendar_p_telefono').value = '';
+  document.getElementById('agendar_motivo').value = '';
+  
+  let contenedorSugerencias = document.getElementById('sugerencias_pacientes');
+  if (contenedorSugerencias) {
+    contenedorSugerencias.style.display = 'none';
+  }
   
   generarEspaciosOdontologo();
 }
 
-$('#agendar_fecha').onchange = generarEspaciosOdontologo;
+document.getElementById('agendar_fecha').onchange = generarEspaciosOdontologo;
 
-function generarEspaciosOdontologo(){
-  const dia = $('#agendar_fecha').value;
-  $('#agendar_hora').innerHTML = ''; if(!dia) return;
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
+function generarEspaciosOdontologo() {
+  let dia = document.getElementById('agendar_fecha').value;
+  let selectorHora = document.getElementById('agendar_hora');
+  selectorHora.innerHTML = ''; 
+  if (!dia) return;
   
-  const datos = almacenamiento.obtener(); const odontologo = datos.odontologos.find(odo=>odo.id===sesionActiva.id); if(!odontologo) return;
-  const [h1,m1] = (odontologo.inicio||'09:00').split(':').map(Number);
-  const [h2,m2] = (odontologo.fin||'17:00').split(':').map(Number);
-  const inicio = new Date(dia + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
-  const fin = new Date(dia + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
   
-  const ocupados = datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id && cit.fecha===dia && cit.estado!=='cancelado').map(cit=>cit.hora);
-
-  const ahora = new Date();
-
-  for(let tiempo=new Date(inicio); tiempo<fin; tiempo=new Date(tiempo.getTime()+(odontologo.duracion||30)*60000)){
-    const etiquetaHora = `${String(tiempo.getHours()).padStart(2,'0')}:${String(tiempo.getMinutes()).padStart(2,'0')}`;
-    
-    const horaBloque = new Date(dia + 'T' + etiquetaHora + ':00');
-    if(horaBloque < ahora) {
-      continue;
-    }
-    
-    if(!ocupados.includes(etiquetaHora)){
-      const op = document.createElement('option'); op.value = etiquetaHora; op.textContent = etiquetaHora; $('#agendar_hora').appendChild(op);
+  let odontologoActual = null;
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id === sesionActiva.id) {
+      odontologoActual = datos.odontologos[i];
+      break;
     }
   }
-  if(!$('#agendar_hora').children.length){
-    const op = document.createElement('option'); op.value=''; op.textContent='Sin horarios'; $('#agendar_hora').appendChild(op);
+  if (!odontologoActual) return;
+  
+  let particionInicio = (odontologoActual.inicio || '09:00').split(':');
+  let particionFin = (odontologoActual.fin || '17:00').split(':');
+  
+  let horaInicioObj = new Date(dia + 'T' + particionInicio[0].padStart(2,'0') + ':' + particionInicio[1].padStart(2,'0') + ':00');
+  let horaFinObj = new Date(dia + 'T' + particionFin[0].padStart(2,'0') + ':' + particionFin[1].padStart(2,'0') + ':00');
+  
+  // Buscar citas ocupadas en este dia
+  let horasOcupadas = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    let c = datos.citas[i];
+    if (c.odontologoId === sesionActiva.id && c.fecha === dia && c.estado !== 'cancelado') {
+      horasOcupadas.push(c.hora);
+    }
+  }
+
+  let ahora = new Date();
+  let tiempoIterador = new Date(horaInicioObj.getTime());
+  let incrementoMinutos = (odontologoActual.duracion || 30) * 60 * 1000;
+
+  while (tiempoIterador < horaFinObj) {
+    let hh = String(tiempoIterador.getHours()).padStart(2, '0');
+    let mm = String(tiempoIterador.getMinutes()).padStart(2, '0');
+    let etiquetaHora = hh + ':' + mm;
+    
+    let bloqueHoraObj = new Date(dia + 'T' + etiquetaHora + ':00');
+    let esFuturo = bloqueHoraObj >= ahora;
+    let estaLibre = !horasOcupadas.includes(etiquetaHora);
+    
+    if (esFuturo && estaLibre) {
+      let opcion = document.createElement('option'); 
+      opcion.value = etiquetaHora; 
+      opcion.textContent = etiquetaHora; 
+      selectorHora.appendChild(opcion);
+    }
+    
+    tiempoIterador.setTime(tiempoIterador.getTime() + incrementoMinutos);
+  }
+  
+  if (selectorHora.children.length === 0) {
+    let opcionVacia = document.createElement('option'); 
+    opcionVacia.value = ''; 
+    opcionVacia.textContent = 'Sin horarios'; 
+    selectorHora.appendChild(opcionVacia);
   }
 }
 
 function filtrarPacientesExistentes() {
-  const input = $('#agendar_p_nombre');
-  const contenedor = $('#sugerencias_pacientes');
-  const filtro = input.value.trim().toLowerCase();
+  let input = document.getElementById('agendar_p_nombre');
+  let contenedor = document.getElementById('sugerencias_pacientes');
+  let filtro = input.value.trim().toLowerCase();
   
-  $('#agendar_p_id').value = '';
+  document.getElementById('agendar_p_id').value = '';
 
   if (!filtro) {
     contenedor.innerHTML = '';
@@ -766,264 +923,430 @@ function filtrarPacientesExistentes() {
     return;
   }
 
-  const datos = almacenamiento.obtener();
-  const coincidentes = datos.pacientes.filter(pac => pac.nombre.toLowerCase().includes(filtro));
+  let datos = obtenerDatosSaves();
+  let HTMLSugerencias = '';
+  
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    let pac = datos.pacientes[i];
+    if (pac.nombre.toLowerCase().includes(filtro)) {
+      let correoMostrable = pac.correo.includes('@interno.com') ? 'Sin correo' : pac.correo;
+      let telMostrable = pac.telefono || 'Sin Tel.';
+      let nombreEscapado = pac.nombre.replace(/'/g, "\\'");
+      
+      HTMLSugerencias += `<div style="padding: 10px 16px; cursor: pointer; border-bottom: 1px solid #f1f5f9; font-size: 14px;" 
+                 onclick="seleccionarPacienteExistente('${pac.id}', '${nombreEscapado}', '${pac.correo}', '${pac.telefono}')"
+                 onmouseover="this.style.backgroundColor='#f8fafc'" 
+                 onmouseout="this.style.backgroundColor='white'">
+              <b>${pac.nombre}</b> <span style="color: var(--atenuado); font-size: 12px;">(${correoMostrable} • ${telMostrable})</span>
+            </div>`;
+    }
+  }
 
-  if (coincidentes.length === 0) {
+  if (HTMLSugerencias === '') {
     contenedor.innerHTML = '';
     contenedor.style.display = 'none';
     return;
   }
 
-  contenedor.innerHTML = coincidentes.map(pac => {
-    const correoMostrable = pac.correo.includes('@interno.com') ? 'Sin correo' : pac.correo;
-    return `<div style="padding: 10px 16px; cursor: pointer; border-bottom: 1px solid #f1f5f9; font-size: 14px;" 
-                 onclick="seleccionarPacienteExistente('${pac.id}', '${pac.nombre.replace(/'/g, "\\'")}', '${pac.correo}', '${pac.telefono}')"
-                 onmouseover="this.style.backgroundColor='#f8fafc'" 
-                 onmouseout="this.style.backgroundColor='white'">
-              <b>${pac.nombre}</b> <span style="color: var(--atenuado); font-size: 12px;">(${correoMostrable} • ${pac.telefono || 'Sin Tel.'})</span>
-            </div>`;
-  }).join('');
-  
+  contenedor.innerHTML = HTMLSugerencias;
   contenedor.style.display = 'block';
 }
 
 function seleccionarPacienteExistente(id, nombre, correo, telefono) {
-  $('#agendar_p_id').value = id;
-  $('#agendar_p_nombre').value = nombre;
-  $('#agendar_p_correo').value = correo.includes('@interno.com') ? '' : correo;
-  $('#agendar_p_telefono').value = telefono || '';
+  document.getElementById('agendar_p_id').value = id;
+  document.getElementById('agendar_p_nombre').value = nombre;
+  document.getElementById('agendar_p_correo').value = correo.includes('@interno.com') ? '' : correo;
+  document.getElementById('agendar_p_telefono').value = telefono || '';
   
-  const contenedor = $('#sugerencias_pacientes');
+  let contenedor = document.getElementById('sugerencias_pacientes');
   contenedor.innerHTML = '';
   contenedor.style.display = 'none';
 }
 
-document.addEventListener('click', (e) => {
+document.addEventListener('click', function(e) {
   if (e.target.id !== 'agendar_p_nombre' && e.target.id !== 'sugerencias_pacientes') {
-    if($('#sugerencias_pacientes')) $('#sugerencias_pacientes').style.display = 'none';
+    let divSugerencias = document.getElementById('sugerencias_pacientes');
+    if (divSugerencias) {
+      divSugerencias.style.display = 'none';
+    }
   }
 });
 
-$('#btnConfirmarAgendarPorOdontologo').onclick = ()=>{
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
-  const pacienteIdExistente = $('#agendar_p_id').value;
-  const pacienteNombre = $('#agendar_p_nombre').value.trim();
-  const pacienteCorreo = $('#agendar_p_correo').value.trim();
-  const pacienteTelefono = $('#agendar_p_telefono').value.trim();
-  const fecha = $('#agendar_fecha').value; 
-  const hora = $('#agendar_hora').value; 
-  const motivo = $('#agendar_motivo').value.trim();
+function guardarCitaVentanilla() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
   
-  if(!pacienteNombre || !fecha || !hora){ notificar('Ingresa el nombre del paciente, fecha y hora'); return; }
+  let pacienteIdExistente = document.getElementById('agendar_p_id').value;
+  let pacienteNombre = document.getElementById('agendar_p_nombre').value.trim();
+  let pacienteCorreo = document.getElementById('agendar_p_correo').value.trim();
+  let pacienteTelefono = document.getElementById('agendar_p_telefono').value.trim();
+  let fecha = document.getElementById('agendar_fecha').value; 
+  let hora = document.getElementById('agendar_hora').value; 
+  let motivo = document.getElementById('agendar_motivo').value.trim();
   
-  almacenamiento.actualizar(datos=>{
-    let paciente;
+  if (!pacienteNombre || !fecha || !hora) { 
+    notificar('Ingresa el nombre del paciente, fecha y hora'); 
+    return; 
+  }
+  
+  let pacienteAsignado = null;
 
-    if (pacienteIdExistente) {
-      paciente = datos.pacientes.find(pac => pac.id === pacienteIdExistente);
-      if (paciente) {
-        paciente.nombre = pacienteNombre;
-        if(pacienteCorreo) paciente.correo = pacienteCorreo;
-        paciente.telefono = pacienteTelefono;
-      }
-    } else {
-      if (pacienteCorreo) {
-        paciente = datos.pacientes.find(pac => pac.correo && pac.correo.toLowerCase() === pacienteCorreo.toLowerCase());
+  if (pacienteIdExistente) {
+    for (let i = 0; i < datos.pacientes.length; i++) {
+      if (datos.pacientes[i].id === pacienteIdExistente) {
+        pacienteAsignado = datos.pacientes[i];
+        break;
       }
     }
-    
-    if(!paciente) {
-      paciente = { id: idUnico(), rol:'paciente', nombre: pacienteNombre, correo: pacienteCorreo||`${idUnico()}@interno.com`, telefono: pacienteTelefono, contrasena:'' };
-      datos.pacientes.push(paciente);
+    if (pacienteAsignado) {
+      pacienteAsignado.nombre = pacienteNombre;
+      if (pacienteCorreo) pacienteAsignado.correo = pacienteCorreo;
+      pacienteAsignado.telefono = pacienteTelefono;
     }
-    
-    datos.citas.push({ id: idUnico(), pacienteId: paciente.id, odontologoId: sesionActiva.id, fecha, hora, motivo, estado:'confirmado', creadoEn: Date.now() });
+  } else {
+    if (pacienteCorreo) {
+      for (let i = 0; i < datos.pacientes.length; i++) {
+        if (datos.pacientes[i].correo && datos.pacientes[i].correo.toLowerCase() === pacienteCorreo.toLowerCase()) {
+          pacienteAsignado = datos.pacientes[i];
+          break;
+        }
+      }
+    }
+  }
+  
+  if (!pacienteAsignado) {
+    let emailFinal = pacienteCorreo || (generarIdUnico() + '@interno.com');
+    pacienteAsignado = { 
+      id: generarIdUnico(), 
+      rol: 'paciente', 
+      nombre: pacienteNombre, 
+      correo: emailFinal, 
+      telefono: pacienteTelefono, 
+      contrasena: '' 
+    };
+    datos.pacientes.push(pacienteAsignado);
+  }
+  
+  datos.citas.push({ 
+    id: generarIdUnico(), 
+    pacienteId: pacienteAsignado.id, 
+    odontologoId: sesionActiva.id, 
+    fecha: fecha, 
+    hora: hora, 
+    motivo: motivo, 
+    estado: 'confirmado', 
+    creadoEn: Date.now() 
   });
   
+  guardarDatos(datos);
   notificar('¡Consulta agendada y confirmada!'); 
-  mostrar('odontologoPrincipal');
-};
+  cambiarVista('odontologoPrincipal');
+}
+document.getElementById('btnConfirmarAgendarPorOdontologo').onclick = guardarCitaVentanilla;
 
-function renderizarAgenda(){
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
-  const datos = almacenamiento.obtener(); const odontologo = datos.odontologos.find(odo=>odo.id===sesionActiva.id);
-  const dia = $('#agenda_fecha').value || obtenerFechaLocalMexicoYMD();
-  $('#agenda_fecha').value = dia;
-  $('#informacionAgenda').textContent = `Dr(a). ${odontologo.nombre} • Horario: ${odontologo.inicio}–${odontologo.fin}`;
+function renderizarAgenda() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
   
-  const citasDelDia = datos.citas.filter(cit=>cit.odontologoId===odontologo.id && cit.fecha===dia && cit.estado!=='cancelado').sort((a,b)=>a.hora.localeCompare(b.hora));
-  const contenedor = $('#espaciosAgenda'); contenedor.innerHTML = '';
-  const [h1,m1] = (odontologo.inicio||'09:00').split(':').map(Number);
-  const [h2,m2] = (odontologo.fin||'17:00').split(':').map(Number);
-  const inicio = new Date(dia + 'T' + `${String(h1).padStart(2,'0')}:${String(m1).padStart(2,'0')}:00`);
-  const fin = new Date(dia + 'T' + `${String(h2).padStart(2,'0')}:${String(m2).padStart(2,'0')}:00`);
+  let odontologoActual = null;
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id === sesionActiva.id) {
+      odontologoActual = datos.odontologos[i];
+      break;
+    }
+  }
+  if (!odontologoActual) return;
+
+  let dia = document.getElementById('agenda_fecha').value || obtenerFechaFormatoYMD();
+  document.getElementById('agenda_fecha').value = dia;
+  document.getElementById('informacionAgenda').textContent = `Dr(a). ${odontologoActual.nombre} • Horario: ${odontologoActual.inicio}–${odontologoActual.fin}`;
   
-  const ahora = new Date();
+  // Filtrar y ordenar citas del dia de forma clasica burbuja o sort
+  let citasDelDia = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    let cit = datos.citas[i];
+    if (cit.odontologoId === odontologoActual.id && cit.fecha === dia && cit.estado !== 'cancelado') {
+      citasDelDia.push(cit);
+    }
+  }
+  citasDelDia.sort(function(a, b) {
+    return a.hora.localeCompare(b.hora);
+  });
 
-  for(let tiempo=new Date(inicio); tiempo<fin; tiempo=new Date(tiempo.getTime()+(odontologo.duracion||30)*60000)){
-    const espacio = `${String(tiempo.getHours()).padStart(2,'0')}:${String(tiempo.getMinutes()).padStart(2,'0')}`;
+  let contenedor = document.getElementById('espaciosAgenda'); 
+  contenedor.innerHTML = '';
+  
+  let particionInicio = (odontologoActual.inicio || '09:00').split(':');
+  let particionFin = (odontologoActual.fin || '17:00').split(':');
+  let tiempoIterador = new Date(dia + 'T' + particionInicio[0].padStart(2,'0') + ':' + particionInicio[1].padStart(2,'0') + ':00');
+  let tiempoFinObj = new Date(dia + 'T' + particionFin[0].padStart(2,'0') + ':' + particionFin[1].padStart(2,'0') + ':00');
+  let incrementoMinutos = (odontologoActual.duracion || 30) * 60 * 1000;
+  let ahora = new Date();
+
+  while (tiempoIterador < tiempoFinObj) {
+    let hh = String(tiempoIterador.getHours()).padStart(2, '0');
+    let mm = String(tiempoIterador.getMinutes()).padStart(2, '0');
+    let espacioHora = hh + ':' + mm;
     
-    const cita = citasDelDia.find(cit=>cit.hora===espacio);
-    const filaElemento = document.createElement('div'); filaElemento.className = 'elemento-lista';
+    let citaEncontrada = null;
+    for (let i = 0; i < citasDelDia.length; i++) {
+      if (citasDelDia[i].hora === espacioHora) {
+        citaEncontrada = citasDelDia[i];
+        break;
+      }
+    }
     
-    const horaInicioCita = new Date(dia + 'T' + espacio + ':00');
+    let filaElemento = document.createElement('div'); 
+    filaElemento.className = 'elemento-lista';
+    let horaInicioCitaObj = new Date(dia + 'T' + espacioHora + ':00');
 
-    if(cita){
-      const pac = datos.pacientes.find(pac=>pac.id===cita.pacienteId);
-      let estadoActual = cita.estado;
-
-      const horaLimiteTolerancia = new Date(horaInicioCita.getTime() + 15 * 60000);
+    if (citaEncontrada) {
+      let pacObj = null;
+      for (let i = 0; i < datos.pacientes.length; i++) {
+        if (datos.pacientes[i].id === citaEncontrada.pacienteId) {
+          pacObj = datos.pacientes[i];
+          break;
+        }
+      }
       
-      const yaEmpezoCita = ahora >= horaInicioCita;
-      const yaExpiroTolerancia = ahora >= horaLimiteTolerancia;
+      let estadoActual = citaEncontrada.estado;
+      let horaLimiteTolerancia = new Date(horaInicioCitaObj.getTime() + 15 * 60 * 1000);
+      let yaEmpezoCita = ahora >= horaInicioCitaObj;
+      let yaExpiroTolerancia = ahora >= horaLimiteTolerancia;
 
-      if(yaExpiroTolerancia) {
-        if(estadoActual === 'pendiente') {
+      if (yaExpiroTolerancia) {
+        if (estadoActual === 'pendiente') {
           estadoActual = 'completada';
-        } else if(estadoActual === 'noasistio') {
-          estadoActual = 'noasistio';
-        } else if(estadoActual === 'confirmado') {
+        } else if (estadoActual === 'confirmado') {
           estadoActual = 'expirada';
         }
       }
 
-      if(estadoActual === 'noasistio'){
+      let datosContacto = pacObj ? (pacObj.correo + ' • ' + pacObj.telefono) : '';
+      let nombrePaciente = pacObj ? pacObj.nombre : 'Paciente';
+
+      if (estadoActual === 'noasistio') {
         filaElemento.innerHTML = `<div>
-          <div style="font-weight:700; color:#b91c1c;">${espacio} — El paciente ${pac?pac.nombre:'paciente'} NO ASISTIÓ</div>
-          <div class="atenuado" style="font-size:13px; margin-top:2px;">Contacto: ${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
+          <div style="font-weight:700; color:#b91c1c;">${espacioHora} — El paciente ${nombrePaciente} NO ASISTIÓ</div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">Contacto: ${datosContacto}</div>
         </div>
         <div style="display:flex; gap:6px; align-items:center;">
           <span class="etiqueta noasistio" style="font-size:11px;">Inasistencia Registrada</span>
-          ${!yaExpiroTolerancia ? `<button class="btn fantasma" style="padding:6px 12px; font-size:13px;" onclick="actualizarEstadoCita('${cita.id}','pendiente')">Cambiar a Atendiendo</button>` : `<span class="atenuado" style="font-size:12px; font-style:italic;">Opciones bloqueadas</span>`}
+          ${!yaExpiroTolerancia ? `<button class="btn fantasma" style="padding:6px 12px; font-size:13px;" onclick="actualizarEstadoCita('${citaEncontrada.id}','pendiente')">Cambiar a Atendiendo</button>` : `<span class="atenuado" style="font-size:12px; font-style:italic;">Opciones bloqueadas</span>`}
         </div>`;
-      } else if(estadoActual === 'completada') {
+      } else if (estadoActual === 'completada') {
+        let motivoTexto = citaEncontrada.motivo ? `<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${citaEncontrada.motivo}</div>` : '';
         filaElemento.innerHTML = `<div>
-          <div style="font-weight:700; color:var(--texto);">${espacio} — Paciente: ${pac?pac.nombre:'Paciente'} <span class="etiqueta completada" style="font-size:10px;">Completada</span></div>
-          <div class="atenuado" style="font-size:13px; margin-top:2px;">${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
-          ${cita.motivo?`<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${cita.motivo}</div>`:''}
+          <div style="font-weight:700; color:var(--texto);">${espacioHora} — Paciente: ${nombrePaciente} <span class="etiqueta completada" style="font-size:10px;">Completada</span></div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">${datosContacto}</div>
+          ${motivoTexto}
         </div>
         <div style="display:flex;gap:6px;">
           <span class="atenuado" style="font-size:12px; align-self:center; font-style:italic;">Consulta cerrada automáticamente</span>
         </div>`;
-      } else if(estadoActual === 'expirada') {
+      } else if (estadoActual === 'expirada') {
         filaElemento.innerHTML = `<div>
-          <div style="font-weight:700; color:#64748b;">${espacio} — Cita Expirada (Sin acción en tolerancia)</div>
-          <div class="atenuado" style="font-size:13px; margin-top:2px;">Paciente: ${pac?pac.nombre:'Paciente'}</div>
+          <div style="font-weight:700; color:#64748b;">${espacioHora} — Cita Expirada (Sin acción en tolerancia)</div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">Paciente: ${nombrePaciente}</div>
         </div>
         <div style="display:flex;gap:6px;">
           <span class="atenuado" style="font-size:12px; align-self:center; font-style:italic;">Tolerancia terminada</span>
         </div>`;
       } else {
         let botonesHtml = '';
-        
         if (!yaEmpezoCita) {
           botonesHtml = `
-            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#10b981;" onclick="actualizarEstadoCita('${cita.id}','confirmado')">Confirmar</button>
-            <button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="actualizarEstadoCita('${cita.id}','cancelado')">Cancelar Turno</button>
+            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#10b981;" onclick="actualizarEstadoCita('${citaEncontrada.id}','confirmado')">Confirmar</button>
+            <button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="actualizarEstadoCita('${citaEncontrada.id}','cancelado')">Cancelar Turno</button>
           `;
         } else {
           botonesHtml = `
-            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#0284c7;" onclick="actualizarEstadoCita('${cita.id}','pendiente')">Atendiendo</button>
-            <button class="btn naranja" style="padding:6px 12px; font-size:13px; color:white;" onclick="actualizarEstadoCita('${cita.id}','noasistio')">No asistió</button>
+            <button class="btn" style="padding:6px 12px; font-size:13px; background-color:#0284c7;" onclick="actualizarEstadoCita('${citaEncontrada.id}','pendiente')">Atendiendo</button>
+            <button class="btn naranja" style="padding:6px 12px; font-size:13px; color:white;" onclick="actualizarEstadoCita('${citaEncontrada.id}','noasistio')">No asistió</button>
           `;
         }
+        let motivoTexto = citaEncontrada.motivo ? `<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${citaEncontrada.motivo}</div>` : '';
+        let badgeEstado = estadoActual === 'pendiente' ? 'Atendiendo' : estadoActual;
 
         filaElemento.innerHTML = `<div>
-          <div style="font-weight:700; color:var(--texto);">${espacio} — Paciente: ${pac?pac.nombre:'Paciente'} <span class="etiqueta ${estadoActual}" style="font-size:10px;">${estadoActual === 'pendiente' ? 'Atendiendo' : estadoActual}</span></div>
-          <div class="atenuado" style="font-size:13px; margin-top:2px;">${pac? (pac.correo + ' • ' + pac.telefono) : ''}</div>
-          ${cita.motivo?`<div class="atenuado" style="font-size:13px; font-style:italic;">Procedimiento: ${cita.motivo}</div>`:''}
+          <div style="font-weight:700; color:var(--texto);">${espacioHora} — Paciente: ${nombrePaciente} <span class="etiqueta ${estadoActual}" style="font-size:10px;">${badgeEstado}</span></div>
+          <div class="atenuado" style="font-size:13px; margin-top:2px;">${datosContacto}</div>
+          ${motivoTexto}
         </div>
         <div style="display:flex;gap:6px;align-items:center;">
           ${botonesHtml}
         </div>`;
       }
     } else {
-      if (ahora >= horaInicioCita) {
-        filaElemento.innerHTML = `<div style="font-weight:600; color:var(--atenuado); font-style:italic;">${espacio} — Horario Expirado / No disponible</div>`;
+      if (ahora >= horaInicioCitaObj) {
+        filaElemento.innerHTML = `<div style="font-weight:600; color:var(--atenuado); font-style:italic;">${espacioHora} — Horario Expirado / No disponible</div>`;
       } else {
-        filaElemento.innerHTML = `<div style="font-weight:700; color:var(--primario);">${espacio} — Espacio Libre Disponible</div>`;
+        filaElemento.innerHTML = `<div style="font-weight:700; color:var(--primario);">${espacioHora} — Espacio Libre Disponible</div>`;
       }
     }
     contenedor.appendChild(filaElemento);
+    tiempoIterador.setTime(tiempoIterador.getTime() + incrementoMinutos);
   }
   lucide.createIcons();
 }
 
-function actualizarEstadoCita(id, estado){
-  almacenamiento.actualizar(datos=> { 
-    const cit = datos.citas.find(cit=>cit.id===id); 
-    if(cit) {
-      if(estado === 'cancelado') {
-        datos.citas = datos.citas.filter(c => c.id !== id);
-      } else {
-        cit.estado = estado; 
+function actualizarEstadoCita(idCita, nuevoEstado) {
+  let datos = obtenerDatosSaves();
+  
+  if (nuevoEstado === 'cancelado') {
+    let copiaCitas = [];
+    for (let i = 0; i < datos.citas.length; i++) {
+      if (datos.citas[i].id !== idCita) {
+        copiaCitas.push(datos.citas[i]);
       }
     }
-  });
+    datos.citas = copiaCitas;
+  } else {
+    for (let i = 0; i < datos.citas.length; i++) {
+      if (datos.citas[i].id === idCita) {
+        datos.citas[i].estado = nuevoEstado;
+        break;
+      }
+    }
+  }
+  guardarDatos(datos);
   
-  let mensajeEstado = estado;
-  if(estado === 'pendiente') mensajeEstado = 'Paciente en atención (Se guardará como Completada al expirar la tolerancia)';
-  if(estado === 'noasistio') mensajeEstado = 'No asistió (Se bloquearán los cambios al expirar la tolerancia)';
-  if(estado === 'cancelado') mensajeEstado = 'Turno Cancelado y borrado';
-  if(estado === 'confirmado') mensajeEstado = 'Turno Confirmado';
+  let msg = nuevoEstado;
+  if (nuevoEstado === 'pendiente') msg = 'Paciente en atención (Se guardará como Completada al expirar la tolerancia)';
+  if (nuevoEstado === 'noasistio') msg = 'No asistió (Se bloquearán los cambios al expirar la tolerancia)';
+  if (nuevoEstado === 'cancelado') msg = 'Turno Cancelado y borrado';
+  if (nuevoEstado === 'confirmado') msg = 'Turno Confirmado';
   
-  notificar(mensajeEstado); 
+  notificar(msg); 
   renderizarAgenda();
 }
 
-function renderizarPacientesOdontologo(){
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
-  const datos = almacenamiento.obtener();
-  const idsPacientes = [...new Set(datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id).map(cit=>cit.pacienteId))];
-  const pacientes = datos.pacientes.filter(pac=>idsPacientes.includes(pac.id));
-  const contenedor = $('#listaPacientesOdontologo');
-  if(!pacientes.length){ contenedor.innerHTML = '<div class="atenuado">No tienes pacientes históricos agendados aún.</div>'; return; }
-  contenedor.innerHTML = pacientes.map(pac=>{
-    return `<div class="elemento-lista">
-      <div><div style="font-weight:700">${pac.nombre}</div><div class="atenuado">${pac.correo.includes('@interno.com')?'Sin correo':pac.correo} • Tel: ${pac.telefono||'Sin teléfono'}</div></div>
-      <div style="display:flex;gap:8px">
-        <button class="btn fantasma" style="padding:8px 14px; font-size:13px" onclick="abrirWhatsapp('${pac.telefono}')">WhatsApp</button>
-        <button class="btn advertencia" style="padding:8px 14px; font-size:13px" onclick="odontologoEliminarPaciente('${pac.id}')">Eliminar Ficha</button>
-      </div>
+function renderizarPacientesOdontologo() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
+  
+  // Buscar IDs únicos de pacientes atendidos por este odontólogo
+  let idsPacientes = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].odontologoId === sesionActiva.id) {
+      if (!idsPacientes.includes(datos.citas[i].pacienteId)) {
+        idsPacientes.push(datos.citas[i].pacienteId);
+      }
+    }
+  }
+  
+  let contenedor = document.getElementById('listaPacientesOdontologo');
+  if (idsPacientes.length === 0) { 
+    contenedor.innerHTML = '<div class="atenuado">No tienes pacientes históricos agendados aún.</div>'; 
+    return; 
+  }
+  
+  let htmlContenido = '';
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    let pac = datos.pacientes[i];
+    if (idsPacientes.includes(pac.id)) {
+      let correoLimpio = pac.correo.includes('@interno.com') ? 'Sin correo' : pac.correo;
+      let telLimpio = pac.telefono || 'Sin teléfono';
+      
+      htmlContenido += `<div class="elemento-lista">
+        <div><div style="font-weight:700">${pac.nombre}</div><div class="atenuado">${correoLimpio} • Tel: ${telLimpio}</div></div>
+        <div style="display:flex;gap:8px">
+          <button class="btn fantasma" style="padding:8px 14px; font-size:13px" onclick="abrirWhatsapp('${pac.telefono}')">WhatsApp</button>
+          <button class="btn advertencia" style="padding:8px 14px; font-size:13px" onclick="odontologoEliminarPaciente('${pac.id}')">Eliminar Ficha</button>
+        </div>
+      </div>`;
+    }
+  }
+  contenedor.innerHTML = htmlContenido;
+}
+
+function odontologoEliminarPaciente(idPaciente) {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
+  
+  if (!confirm('¿Remover este paciente del historial y cancelar sus turnos vigentes?')) return;
+  
+  // Filtrar fuera al paciente y sus citas usando lógica for normal
+  let nuevosPacientes = [];
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    if (datos.pacientes[i].id !== idPaciente) nuevosPacientes.push(datos.pacientes[i]);
+  }
+  
+  let nuevasCitas = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].pacienteId !== idPaciente) nuevasCitas.push(datos.citas[i]);
+  }
+  
+  datos.pacientes = nuevosPacientes;
+  datos.citas = nuevasCitas;
+  guardarDatos(datos);
+  
+  notificar('Paciente removido'); 
+  renderizarPacientesOdontologo();
+}
+
+// --- LOGICA DE CONSOLA ADMINISTRADOR ---
+function renderizarTodosOdontologos() {
+  let datos = obtenerDatosSaves();
+  let contenedor = document.getElementById('listaTodosOdontologos');
+  let html = '';
+  
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    let odo = datos.odontologos[i];
+    let esp = odo.especialidad || '';
+    html += `<div class="elemento-lista">
+      <div><div style="font-weight:700">${odo.nombre}</div><div class="atenuado">${odo.correo} • ${esp}</div></div>
+      <div><button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="adminEliminarOdontologo_impl('${odo.id}')">Eliminar Médico</button></div>
     </div>`;
-  }).join('');
+  }
+  
+  contenedor.innerHTML = html || '<div class="atenuado">No hay doctores en el sistema.</div>';
 }
 
-function odontologoEliminarPaciente(idPaciente){
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
-  if(!confirm('¿Remover este paciente del historial y cancelar sus turnos vigentes?')) return;
-  almacenamiento.actualizar(act=>{ act.pacientes = act.pacientes.filter(pac=>pac.id!==idPaciente); act.citas = act.citas.filter(cit=>cit.pacienteId!==idPaciente); });
-  notificar('Paciente removido'); renderizarPacientesOdontologo();
-}
-
-function renderizarTodosOdontologos(){
-  const datos = almacenamiento.obtener();
-  $('#listaTodosOdontologos').innerHTML = datos.odontologos.map(odo=>`<div class="elemento-lista"><div><div style="font-weight:700">${odo.nombre}</div><div class="atenuado">${odo.correo} • ${odo.especialidad||''}</div></div><div><button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="adminEliminarOdontologo_impl('${odo.id}')">Eliminar Médico</button></div></div>`).join('') || '<div class="atenuado">No hay doctores en el sistema.</div>';
-}
-
-function renderizarTodosPacientes(){
-  const datos = almacenamiento.obtener();
-  if(!datos.pacientes.length) {
-    $('#listaTodosPacientes').innerHTML = '<div class="atenuado">Sin expedientes registrados.</div>';
+function renderizarTodosPacientes() {
+  let datos = obtenerDatosSaves();
+  let contenedor = document.getElementById('listaTodosPacientes');
+  if (datos.pacientes.length === 0) {
+    contenedor.innerHTML = '<div class="atenuado">Sin expedientes registrados.</div>';
     return;
   }
   
-  $('#listaTodosPacientes').innerHTML = datos.pacientes.map(pac=>{
-    const ultimaCita = datos.citas
-      .filter(cit => cit.pacienteId === pac.id && cit.estado !== 'cancelado')
-      .sort((a,b) => b.creadoEn - a.creadoEn)[0];
+  let html = '';
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    let pac = datos.pacientes[i];
+    
+    // Buscar su ultima cita de manera clasica iterando al revés o buscando el mayor creadoEn
+    let ultimaCita = null;
+    for (let j = 0; j < datos.citas.length; j++) {
+      let cit = datos.citas[j];
+      if (cit.pacienteId === pac.id && cit.estado !== 'cancelado') {
+        if (!ultimaCita || cit.creadoEn > ultimaCita.creadoEn) {
+          ultimaCita = cit;
+        }
+      }
+    }
     
     let nombreEspecialista = 'Sin consultas asignadas';
-    if(ultimaCita) {
-      const odo = datos.odontologos.find(odo => odo.id === ultimaCita.odontologoId);
-      if(odo) nombreEspecialista = `Dr(a). ${odo.nombre}`;
+    if (ultimaCita) {
+      for (let k = 0; k < datos.odontologos.length; k++) {
+        if (datos.odontologos[k].id === ultimaCita.odontologoId) {
+          nombreEspecialista = `Dr(a). ${datos.odontologos[k].nombre}`;
+          break;
+        }
+      }
     }
 
-    return `<div class="elemento-lista">
+    let correoLimpio = pac.correo.includes('@interno.com') ? 'Sin correo' : pac.correo;
+    let telLimpio = pac.telefono || '-';
+
+    html += `<div class="elemento-lista">
       <div>
         <div style="font-weight:700">${pac.nombre}</div>
-        <div class="atenuado">${pac.correo.includes('@interno.com')?'Sin correo':pac.correo} • Tel: ${pac.telefono||'-'}</div>
+        <div class="atenuado">${correoLimpio} • Tel: ${telLimpio}</div>
         <div style="margin-top:6px;"><span class="etiqueta medico">Atendido por: ${nombreEspecialista}</span></div>
       </div>
       <div style="display:flex;gap:6px;align-items:center;">
@@ -1031,156 +1354,405 @@ function renderizarTodosPacientes(){
         <button class="btn advertencia" style="padding:6px 12px; font-size:13px" onclick="adminEliminarPaciente_impl('${pac.id}')">Baja Sistema</button>
       </div>
     </div>`;
-  }).join('');
+  }
+  
+  contenedor.innerHTML = html;
 }
 
-function adminEliminarOdontologo_impl(id){
-  if(!confirm('¿Dar de baja a este médico del sistema central?')) return;
-  almacenamiento.actualizar(datos=>{ datos.odontologos = datos.odontologos.filter(odo=>odo.id!==id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==id); });
-  notificar('Dentista eliminado'); renderizarTodosOdontologos();
-}
-function adminEliminarPaciente_impl(id){
-  if(!confirm('¿Eliminar al paciente de la base global?')) return;
-  almacenamiento.actualizar(datos=>{ datos.pacientes = datos.pacientes.filter(pac=>pac.id!==id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==id); });
-  notificar('Paciente eliminado'); renderizarTodosPacientes();
+function adminEliminarOdontologo_impl(id) {
+  if (!confirm('¿Dar de baja a este médico del sistema central?')) return;
+  let datos = obtenerDatosSaves();
+  
+  let odoFiltrados = [];
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id !== id) odoFiltrados.push(datos.odontologos[i]);
+  }
+  
+  let citFiltradas = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].odontologoId !== id) citFiltradas.push(datos.citas[i]);
+  }
+  
+  datos.odontologos = odoFiltrados;
+  datos.citas = citFiltradas;
+  guardarDatos(datos);
+  
+  notificar('Dentista eliminado'); 
+  renderizarTodosOdontologos();
 }
 
-function abrirPerfil(rol){ destinoVolver = 'odontologoPrincipal'; mostrar('perfil'); }
-function renderizarPerfil(){
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return mostrar('iniciarSesion');
-  const datos = almacenamiento.obtener(); const usuario = datos.odontologos.find(odo=>odo.id===sesionActiva.id);
-  if(!usuario) return;
-  $('#formularioPerfil [name="nombre"]').value = usuario.nombre || '';
-  $('#formularioPerfil [name="correo"]').value = usuario.correo || '';
-  $('#formularioPerfil [name="telefono"]').value = usuario.telefono || '';
-  const extra = $('#perfilExtra'); extra.innerHTML = ''; $('#btnEliminarPerfil').style.display = 'none';
-  if(sesionActiva.rol==='odontologo'){
-    extra.innerHTML = `<label>Especialidad Médica<input name="especialidad" value="${usuario.especialidad||''}"></label>
-      <div class="fila"><label>Inicio Jornada<input name="inicio" type="time" value="${usuario.inicio||'09:00'}"></label><label>Fin Jornada<input name="fin" type="time" value="${usuario.fin||'17:00'}"></label></div>
-      <label>Tiempo de consulta (min)<select name="duracion"><option ${usuario.duracion==30?'selected':''}>30</option><option ${usuario.duracion==45?'selected':''}>45</option><option ${usuario.duracion==60?'selected':''}>60</option></select></label>`;
-    $('#btnEliminarPerfil').style.display = 'inline-block';
+function adminEliminarPaciente_impl(id) {
+  if (!confirm('¿Eliminar al paciente de la base global?')) return;
+  let datos = obtenerDatosSaves();
+  
+  let pacFiltrados = [];
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    if (datos.pacientes[i].id !== id) pacFiltrados.push(datos.pacientes[i]);
+  }
+  
+  let citFiltradas = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].odontologoId !== id) citFiltradas.push(datos.citas[i]);
+  }
+  
+  datos.pacientes = pacFiltrados;
+  datos.citas = citFiltradas;
+  guardarDatos(datos);
+  
+  notificar('Paciente eliminado'); 
+  renderizarTodosPacientes();
+}
+
+// --- CONFIGURACIÓN DE PERFIL ---
+function abrirPerfil(rol) { 
+  destinoVolver = 'odontologoPrincipal'; 
+  cambiarVista('perfil'); 
+}
+
+function renderizarPerfil() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva) return cambiarVista('iniciarSesion');
+  
+  let usuario = null;
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id === sesionActiva.id) {
+      usuario = datos.odontologos[i];
+      break;
+    }
+  }
+  if (!usuario) return;
+  
+  document.getElementById('perf_nombre').value = usuario.nombre || '';
+  document.getElementById('perf_correo').value = usuario.correo || '';
+  document.getElementById('perf_telefono').value = usuario.telefono || '';
+  
+  let extra = document.getElementById('perfilExtra'); 
+  extra.innerHTML = ''; 
+  document.getElementById('btnEliminarPerfil').style.display = 'none';
+  
+  if (sesionActiva.rol === 'odontologo') {
+    let esp = usuario.especialidad || '';
+    let hIni = usuario.inicio || '09:00';
+    let hFin = usuario.fin || '17:00';
+    
+    extra.innerHTML = `<label>Especialidad Médica<input name="especialidad" id="perf_especialidad" value="${esp}"></label>
+      <div class="fila"><label>Inicio Jornada<input name="inicio" id="perf_inicio" type="time" value="${hIni}"></label><label>Fin Jornada<input name="fin" id="perf_fin" type="time" value="${hFin}"></label></div>
+      <label>Tiempo de consulta (min)<select name="duracion" id="perf_duracion"><option ${usuario.duracion==30?'selected':''}>30</option><option ${usuario.duracion==45?'selected':''}>45</option><option ${usuario.duracion==60?'selected':''}>60</option></select></label>`;
+    document.getElementById('btnEliminarPerfil').style.display = 'inline-block';
   }
 }
 
-$('#formularioPerfil').onsubmit = evento=>{
-  evento.preventDefault(); const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return;
-  const formularioDatos = new FormData(evento.target); const nuevoCorreo = (formularioDatos.get('correo')||'').trim();
-  almacenamiento.actualizar(datos=>{
-    if(sesionActiva.rol==='odontologo'){ const odo = datos.odontologos.find(odo=>odo.id===sesionActiva.id); Object.assign(odo,{ nombre: formularioDatos.get('nombre'), correo: nuevoCorreo, telefono: formularioDatos.get('telefono'), especialidad: formularioDatos.get('especialidad'), inicio: formularioDatos.get('inicio'), fin: formularioDatos.get('fin'), duracion: parseInt(formularioDatos.get('duracion')||30) }); }
-  });
+document.getElementById('formularioPerfil').onsubmit = function(evento) {
+  evento.preventDefault(); 
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva) return;
+  
+  let nuevoNombre = document.getElementById('perf_nombre').value;
+  let nuevoCorreo = document.getElementById('perf_correo').value.trim();
+  let nuevoTelefono = document.getElementById('perf_telefono').value;
+  
+  if (sesionActiva.rol === 'odontologo') {
+    let odontologo = null;
+    for (let i = 0; i < datos.odontologos.length; i++) {
+      if (datos.odontologos[i].id === sesionActiva.id) {
+        odontologo = datos.odontologos[i];
+        break;
+      }
+    }
+    if (odontologo) {
+      odontologo.nombre = nuevoNombre;
+      odontologo.correo = nuevoCorreo;
+      odontologo.telefono = nuevoTelefono;
+      odontologo.especialidad = document.getElementById('perf_especialidad').value;
+      odontologo.inicio = document.getElementById('perf_inicio').value;
+      odontologo.fin = document.getElementById('perf_fin').value;
+      odontologo.duracion = parseInt(document.getElementById('perf_duracion').value || 30);
+    }
+  }
+  guardarDatos(datos);
   notificar('Perfil actualizado');
 };
 
-$('#btnEliminarPerfil').onclick = () => {
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva) return;
-  if(!confirm('¿Eliminar tu perfil médico y liberar tus espacios permanentemente?')) return;
-  almacenamiento.actualizar(datos=>{ datos.odontologos = datos.odontologos.filter(odo=>odo.id!==sesionActiva.id); datos.citas = datos.citas.filter(cit=>cit.odontologoId!==sesionActiva.id); datos.sesion = null; });
-  notificar('Perfil eliminado'); mostrar('pantallaBienvenida');
+document.getElementById('btnEliminarPerfil').onclick = function() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva) return;
+  
+  if (!confirm('¿Eliminar tu perfil médico y liberar tus espacios permanentemente?')) return;
+  
+  let odoFiltrados = [];
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id !== sesionActiva.id) odoFiltrados.push(datos.odontologos[i]);
+  }
+  
+  let citFiltradas = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].odontologoId !== sesionActiva.id) citFiltradas.push(datos.citas[i]);
+  }
+  
+  datos.odontologos = odoFiltrados;
+  datos.citas = citFiltradas;
+  datos.sesion = null;
+  guardarDatos(datos);
+  
+  notificar('Perfil eliminado'); 
+  cambiarVista('pantallaBienvenida');
 };
 
-function escaparCsv(valor){ if(valor===undefined||valor===null) return ''; return `"${String(valor).replace(/"/g,'""')}"`; }
-function descargarArchivo(contenido, nombreArchivo, tipo='text/plain'){ const blob = new Blob([contenido], {type: tipo}); const enlace = document.createElement('a'); enlace.href = URL.createObjectURL(blob); enlace.download = nombreArchivo; enlace.click(); }
-function analizarLineaCsv(linea){
-  const resultado=[]; let actual=''; let enComillas=false;
-  for(let i=0;i<linea.length;i++){
-    const caracter = linea[i];
-    if(caracter==='"'){ if(enComillas && linea[i+1]==='"'){ actual+='"'; i++; } else { enComillas = !enComillas; } continue; }
-    if(caracter===',' && !enComillas){ resultado.push(actual); actual=''; continue; }
+// --- LOGICA EXPORTACION / IMPORTACION CSV ---
+function escaparTextoCsv(valor) { 
+  if (valor === undefined || valor === null) return ''; 
+  return `"${String(valor).replace(/"/g,'""')}"`; 
+}
+
+function descargarArchivoMime(contenido, nombreArchivo) { 
+  let blob = new Blob([contenido], {type: 'text/csv'}); 
+  let enlace = document.createElement('a'); 
+  enlace.href = URL.createObjectURL(blob); 
+  enlace.download = nombreArchivo; 
+  enlace.click(); 
+}
+
+function analizarLineaCsv(linea) {
+  let resultado = []; 
+  let actual = ''; 
+  let enComillas = false;
+  for (let i = 0; i < linea.length; i++) {
+    let caracter = linea[i];
+    if (caracter === '"') { 
+      if (enComillas && linea[i+1] === '"') { 
+        actual += '"'; 
+        i++; 
+      } else { 
+        enComillas = !enComillas; 
+      } 
+      continue; 
+    }
+    if (caracter === ',' && !enComillas) { 
+      resultado.push(actual); 
+      actual = ''; 
+      continue; 
+    }
     actual += caracter;
   }
-  resultado.push(actual); return resultado;
+  resultado.push(actual); 
+  return resultado;
 }
 
-function exportarPacientesOdontologoCSV_impl(){
-  const sesionActiva = almacenamiento.obtener().sesion; if(!sesionActiva || sesionActiva.rol!=='odontologo') return;
-  const datos = almacenamiento.obtener(); 
-  const odontologoActual = datos.odontologos.find(odo => odo.id === sesionActiva.id);
-  const nombreOdontologo = odontologoActual ? odontologoActual.nombre : 'especialista';
-
-  const ids = [...new Set(datos.citas.filter(cit=>cit.odontologoId===sesionActiva.id).map(cit=>cit.pacienteId))];
-  const campus_pacientes = datos.pacientes.filter(pac=>ids.includes(pac.id));
-  if(!campus_pacientes.length){ notificar('Sin pacientes para exportar'); return; }
-  const filas = [['Nombre','Correo','Teléfono']];
-  campus_pacientes.forEach(pac=> filas.push([escaparCsv(pac.nombre), escaparCsv(pac.correo.includes('@interno.com')?'':pac.correo), escaparCsv(pac.telefono)]));
+function exportarPacientesOdontologoCSV_impl() {
+  let datos = obtenerDatosSaves();
+  let sesionActiva = datos.sesion; 
+  if (!sesionActiva || sesionActiva.rol !== 'odontologo') return;
   
-  descargarArchivo(filas.map(fil=>fil.join(',')).join('\n'), `pacientes del dr ${nombreOdontologo}.csv`, 'text/csv');
+  let odontologoActual = null;
+  for (let i = 0; i < datos.odontologos.length; i++) {
+    if (datos.odontologos[i].id === sesionActiva.id) {
+      odontologoActual = datos.odontologos[i];
+      break;
+    }
+  }
+  let nombreOdontologo = odontologoActual ? odontologoActual.nombre : 'especialista';
+
+  let ids = [];
+  for (let i = 0; i < datos.citas.length; i++) {
+    if (datos.citas[i].odontologoId === sesionActiva.id) {
+      if (!ids.includes(datos.citas[i].pacienteId)) ids.push(datos.citas[i].pacienteId);
+    }
+  }
+  
+  if (ids.length === 0) { 
+    notificar('Sin pacientes para exportar'); 
+    return; 
+  }
+  
+  let filas = [['Nombre', 'Correo', 'Teléfono']];
+  for (let i = 0; i < datos.pacientes.length; i++) {
+    let pac = datos.pacientes[i];
+    if (ids.includes(pac.id)) {
+      let emailFinal = pac.correo.includes('@interno.com') ? '' : pac.correo;
+      filas.push([escaparTextoCsv(pac.nombre), escaparTextoCsv(emailFinal), escaparTextoCsv(pac.telefono)]);
+    }
+  }
+  
+  let contenidoCsv = '';
+  for (let i = 0; i < filas.length; i++) {
+    contenidoCsv += filas[i].join(',') + '\n';
+  }
+  
+  descargarArchivoMime(contenidoCsv, `pacientes del dr ${nombreOdontologo}.csv`);
 }
 
-function importingArchivoCSVOdontologo_impl(evento){
-  const archivo = evento.target.files[0]; if(!archivo) return;
-  const lector = new FileReader();
-  lector.onload = e => {
-    const lineas = e.target.result.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);
-    if(lineas.length<=1){ notificar('Falta información en el archivo'); return; }
-    const cabecera = analizarLineaCsv(lineas.shift()).map(cab=>cab.replace(/"/g,'').trim().toLowerCase());
-    const indiceNombre = cabecera.findIndex(cab=>cab.includes('nombre')), indiceCorreo = cabecera.findIndex(cab=>cab.includes('correo')||cab.includes('email')), indiceTelefono = cabecera.findIndex(cab=>cab.includes('tel')||cab.includes('telefono'));
-    if(indiceNombre<0 || indiceCorreo<0){ notificar('Columnas requeridas: Nombre, Correo'); return; }
-    let agregados=0, omitidos=0;
-    lineas.forEach(linea=>{
-      const columnas = analizarLineaCsv(linea); const nombre = (columnas[indiceNombre]||'').replace(/(^"|"$)/g,'').trim(); const correo = (columnas[indiceCorreo]||'').replace(/(^"|"$)/g,'').trim(); const telefono = indiceTelefono>=0 ? (columnas[indiceTelefono]||'').replace(/(^"|"$)/g,'').trim() : '';
-      if(!correo || existeEmail(correo)){ omitidos++; return; }
-      almacenamiento.actualizar(act=> act.pacientes.push({ id: idUnico(), rol:'paciente', nombre, correo, telefono, contrasena: '' })); agregados++;
-    });
-    notificar(`Éxito: ${agregados} importados. Omitidos: ${omitidos}`); $('#inputImportarOdontologo').value = '';
+function importingArchivoCSVOdontologo_impl(evento) {
+  let archivo = evento.target.files[0]; 
+  if (!archivo) return;
+  
+  let lector = new FileReader();
+  lector.onload = function(e) {
+    let lineasBrutas = e.target.result.split(/\r?\n/);
+    let lineas = [];
+    for (let i = 0; i < lineasBrutas.length; i++) {
+      let l = lineasBrutas[i].trim();
+      if (l) lineas.push(l);
+    }
+    
+    if (lineas.length <= 1) { 
+      notificar('Falta información en el archivo'); 
+      return; 
+    }
+    
+    let filaCabecera = analizarLineaCsv(lineas.shift());
+    let cabecera = [];
+    for (let i = 0; i < filaCabecera.length; i++) {
+      cabecera.push(filaCabecera[i].replace(/"/g,'').trim().toLowerCase());
+    }
+    
+    let indiceNombre = -1, indiceCorreo = -1, indiceTelefono = -1;
+    for (let i = 0; i < cabecera.length; i++) {
+      if (cabecera[i].includes('nombre')) indiceNombre = i;
+      if (cabecera[i].includes('correo') || cabecera[i].includes('email')) indiceCorreo = i;
+      if (cabecera[i].includes('tel') || cabecera[i].includes('telefono')) indiceTelefono = i;
+    }
+    
+    if (indiceNombre < 0 || indiceCorreo < 0) { 
+      notificar('Columnas requeridas: Nombre, Correo'); 
+      return; 
+    }
+    
+    let agregados = 0, omitidos = 0;
+    let datos = obtenerDatosSaves();
+
+    for (let i = 0; i < lineas.length; i++) {
+      let columnas = analizarLineaCsv(lineas[i]);
+      let nombre = (columnas[indiceNombre] || '').replace(/(^"|"$)/g,'').trim(); 
+      let correo = (columnas[indiceCorreo] || '').replace(/(^"|"$)/g,'').trim(); 
+      let telefono = indiceTelefono >= 0 ? (columnas[indiceTelefono] || '').replace(/(^"|"$)/g,'').trim() : '';
+      
+      if (!correo || verificarSiExisteEmail(correo)) { 
+        omitidos++; 
+        continue; 
+      }
+      
+      datos.pacientes.push({ 
+        id: generarIdUnico(), 
+        rol: 'paciente', 
+        nombre: nombre, 
+        correo: correo, 
+        telefono: telefono, 
+        contrasena: '' 
+      }); 
+      agregados++;
+    }
+    
+    guardarDatos(datos);
+    notificar(`Éxito: ${agregados} importados. Omitidos: ${omitidos}`); 
+    document.getElementById('inputImportarOdontologo').value = '';
   };
   lector.readAsText(archivo);
 }
 
-function prepararCsvOdontologo(){
-  $('#btnExportarOdontologo').onclick = exportarPacientesOdontologoCSV_impl;
-  $('#inputImportarOdontologo').onchange = importingArchivoCSVOdontologo_impl;
-}
-function abrirWhatsapp(telefono){ if(!telefono) { notificar('No hay teléfono asignado'); return; } notificar(`Enlazando API WhatsApp a ${telefono}...`); }
-
-function cerrarSesion(){ 
-  almacenamiento.actualizar(datos=>datos.sesion=null); 
-  
-  if ($('#login_correo')) $('#login_correo').value = '';
-  if ($('#login_contrasena')) $('#login_contrasena').value = '';
-  
-  $$('.envoltura-contrasena input').forEach(input => input.type = 'password');
-  $$('.boton-alternar-contrasena').forEach(btn => btn.innerHTML = '<i data-lucide="eye"></i>');
-  
-  mostrar('pantallaBienvenida'); 
+function prepararCsvOdontologo() {
+  document.getElementById('btnExportarOdontologo').onclick = exportarPacientesOdontologoCSV_impl;
+  document.getElementById('inputImportarOdontologo').onchange = importingArchivoCSVOdontologo_impl;
 }
 
-(function inicializar(){
+function abrirWhatsapp(telefono) { 
+  if (!telefono) { 
+    notificar('No hay teléfono asignado'); 
+    return; 
+  } 
+  notificar(`Enlazando API WhatsApp a ${telefono}...`); 
+}
+
+function cerrarSesion() { 
+  let datos = obtenerDatosSaves();
+  datos.sesion = null; 
+  guardarDatos(datos);
+  
+  if (document.getElementById('login_correo')) document.getElementById('login_correo').value = '';
+  if (document.getElementById('login_contrasena')) document.getElementById('login_contrasena').value = '';
+  
+  let inputsPassword = document.querySelectorAll('.envoltura-contrasena input');
+  for (let i = 0; i < inputsPassword.length; i++) {
+    inputsPassword[i].type = 'password';
+  }
+  
+  let botonesAlternar = document.querySelectorAll('.boton-alternar-contrasena');
+  for (let i = 0; i < botonesAlternar.length; i++) {
+    botonesAlternar[i].innerHTML = '<i data-lucide="eye"></i>';
+  }
+  
+  cambiarVista('pantallaBienvenida'); 
+}
+
+// --- INITIALIZER DE LA PAGINA ---
+function inicializarSistema() {
   seleccionarRolInicio('odontologo');
-  mostrar('pantallaBienvenida');
+  cambiarVista('pantallaBienvenida');
 
-  $('#btnExportarTodo') && ($('#btnExportarTodo').onclick = ()=>{
-    const datos = almacenamiento.obtener(); if(!datos.pacientes.length) return notificar('Sin registros');
-    
-    const filas = [['Nombre','Correo','Teléfono','Especialista']];
-    
-    datos.pacientes.forEach(pac=> {
-      const ultimaCita = datos.citas
-        .filter(cit => cit.pacienteId === pac.id && cit.estado !== 'cancelado')
-        .sort((a,b) => b.creadoEn - a.creadoEn)[0];
-      
-      let nombreEsp = 'Sin consultas asignadas';
-      if(ultimaCita) {
-        const odo = datos.odontologos.find(odo => odo.id === ultimaCita.odontologoId);
-        if(odo) nombreEsp = `Dr(a). ${odo.nombre}`;
+  let btnExportarTodo = document.getElementById('btnExportarTodo');
+  if (btnExportarTodo) {
+    btnExportarTodo.onclick = function() {
+      let datos = obtenerDatosSaves(); 
+      if (datos.pacientes.length === 0) {
+        notificar('Sin registros');
+        return;
       }
       
-      filas.push([
-        escaparCsv(pac.nombre), 
-        escaparCsv(pac.correo.includes('@interno.com') ? '' : pac.correo), 
-        escaparCsv(pac.telefono),
-        escaparCsv(nombreEsp)
-      ]);
-    });
-    
-    descargarArchivo(filas.map(fil=>fil.join(',')).join('\n'), 'todos-pacientes-global.csv', 'text/csv');
-  });
-})();
+      let filas = [['Nombre', 'Correo', 'Teléfono', 'Especialista']];
+      
+      for (let i = 0; i < datos.pacientes.length; i++) {
+        let pac = datos.pacientes[i];
+        
+        let ultimaCita = null;
+        for (let j = 0; j < datos.citas.length; j++) {
+          let cit = datos.citas[j];
+          if (cit.pacienteId === pac.id && cit.estado !== 'cancelado') {
+            if (!ultimaCita || cit.creadoEn > ultimaCita.creadoEn) {
+              ultimaCita = cit;
+            }
+          }
+        }
+        
+        let nombreEsp = 'Sin consultas asignadas';
+        if (ultimaCita) {
+          for (let k = 0; k < datos.odontologos.length; k++) {
+            if (datos.odontologos[k].id === ultimaCita.odontologoId) {
+              nombreEsp = `Dr(a). ${datos.odontologos[k].nombre}`;
+              break;
+            }
+          }
+        }
+        
+        let correoLimpio = pac.correo.includes('@interno.com') ? '' : pac.correo;
+        filas.push([
+          escaparTextoCsv(pac.nombre), 
+          escaparTextoCsv(correoLimpio), 
+          escaparTextoCsv(pac.telefono),
+          escaparTextoCsv(nombreEsp)
+        ]);
+      }
+      
+      let contenidoCsv = '';
+      for (let i = 0; i < filas.length; i++) {
+        contenidoCsv += filas[i].join(',') + '\n';
+      }
+      
+      descargarArchivoMime(contenidoCsv, 'todos-pacientes-global.csv');
+    };
+  }
+}
 
-window.mostrar = mostrar;
+// Inicialización automática al cargar el script
+inicializarSistema();
+
+// Exposición global para los onclick inline del HTML
+window.cambiarVista = cambiarVista;
 window.cerrarSesion = cerrarSesion;
 window.seleccionarRolInicio = seleccionarRolInicio;
 window.adminEliminarOdontologo_impl = adminEliminarOdontologo_impl;
-window.adminEliminarPaciente_impl = adminEliminarPaciente_impl;
+window.adminEliminarPatient_impl = adminEliminarPaciente_impl;
 window.actualizarEstadoCita = actualizarEstadoCita;
 window.odontologoEliminarPaciente = odontologoEliminarPaciente;
 window.abrirPerfil = abrirPerfil;
